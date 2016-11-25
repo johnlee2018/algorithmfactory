@@ -1,4 +1,4 @@
 # algorithmfactory
 
-this is the java project based on jsp+servelt+javaBeangfgfhgg
+this is the java project based on jsp+servelt+javaBean
 
