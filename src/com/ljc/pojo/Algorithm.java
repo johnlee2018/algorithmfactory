@@ -4,7 +4,6 @@ package com.ljc.pojo;
 public class Algorithm{
 	
 	private int id;
-	
 	private String name;
 	private String function;
 	

@@ -14,6 +14,7 @@ public interface UserMDao{
 	/**
 	 * 根据用户名查询单条记录
 	 * 
+	 
 	 * @author li jianchun
 	 * @param username
 	 * @return
