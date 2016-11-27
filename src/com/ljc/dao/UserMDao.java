@@ -9,7 +9,7 @@ import com.ljc.pojo.PagePojo;
  * @author HP
  *
  */
-public interface UserMdao{
+public interface UserMDao{
 	
 	/**
 	 * 根据用户名查询单条记录
