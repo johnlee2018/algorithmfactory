@@ -33,7 +33,11 @@ public class UserMDaoImpl implements UserMDao {
 			sta = conn.prepareStatement(sql);
 			sta.setString(1, username);
 			rs = sta.executeQuery();
-			if (rs.next()) {
+			System.out.println("%%%%%%%");
+			System.out.println(rs);
+
+			if (rs.next()) 
+			{
 				user = handleRs(rs);
 			}
 		} catch (SQLException e) {
@@ -75,6 +79,9 @@ public class UserMDaoImpl implements UserMDao {
 			sta.setString(1, u.getUserName());
 			sta.setString(2, u.getPass());
 			rs = sta.executeQuery();
+			System.out.println("##########");
+			System.out.println(rs);
+
 			if (rs.next()) {
 				user = handleRs(rs);
 			}
@@ -125,6 +132,8 @@ public class UserMDaoImpl implements UserMDao {
 				sta.setInt(2, pagePojo.getPageCount());
 			}
 			rs = sta.executeQuery();
+			System.out.println("**********");
+			System.out.println(rs);
 			users = new ArrayList<User>();
 			while (rs.next()) {
 				User user = handleRs(rs);

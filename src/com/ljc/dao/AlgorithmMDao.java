@@ -25,7 +25,7 @@ public interface AlgorithmMDao{
 	 * @param algoritm
 	 * @return
 	 */
-	public Algorithm getAlgorithmByAlgorithmNameFunction(Algorithm algoritm);
+	public Algorithm getAlgorithmByAlgorithmFunction(String  function);
 
 	/**
 	 * get algorithms by page
