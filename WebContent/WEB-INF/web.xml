@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
-  <display-name>algorithmfactory(huaqian)</display-name>
+  <display-name>algorithmfactory</display-name>
   <filter>
     <filter-name>LogFilter</filter-name>
     <filter-class>com.ljc.controller.LogFilter</filter-class>
@@ -9,7 +9,7 @@
       <param-value>http://localhost:8080/algorithmfactory</param-value>
     </init-param>
   </filter>
-  <filter>
+<!--   <filter>
     <filter-name>LogFilter1</filter-name>
     <filter-class>com.ljc.controller.LogFilter1</filter-class>
     <init-param>
@@ -17,15 +17,17 @@
       <param-value>lianggeguolvhttp://localhost:8080/algorithmfactory</param-value>
     </init-param>
   </filter>
+ --> 
   <filter-mapping>
     <filter-name>LogFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <filter-mapping>
+<!--   <filter-mapping>
     <filter-name>LogFilter1</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <listener>
+ -->
+   <listener>
     <listener-class>com.ljc.controller.MyServletContextListener</listener-class>
   </listener>
   <welcome-file-list>
