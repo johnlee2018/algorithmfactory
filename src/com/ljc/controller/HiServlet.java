@@ -19,10 +19,10 @@ public class HiServlet extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    //public HiServlet() {
-    //    super();
+    public HiServlet() {
+        super();
         // TODO Auto-generated constructor stub
-    //}
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
