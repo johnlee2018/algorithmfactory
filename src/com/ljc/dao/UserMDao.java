@@ -19,7 +19,7 @@ public interface UserMDao{
 	 * @param username
 	 * @return
 	 */
-	public User getUserByUserName(String username);
+	public User getUserByUserName(String userName);
 	/**
 	 * 根据用户名和密码查询单条记录
 	 * 

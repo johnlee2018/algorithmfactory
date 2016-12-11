@@ -9,25 +9,11 @@
       <param-value>http://localhost:8080/algorithmfactory</param-value>
     </init-param>
   </filter>
-<!--   <filter>
-    <filter-name>LogFilter1</filter-name>
-    <filter-class>com.ljc.controller.LogFilter1</filter-class>
-    <init-param>
-      <param-name>Site</param-name>
-      <param-value>lianggeguolvhttp://localhost:8080/algorithmfactory</param-value>
-    </init-param>
-  </filter>
- --> 
   <filter-mapping>
     <filter-name>LogFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-<!--   <filter-mapping>
-    <filter-name>LogFilter1</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
- -->
-   <listener>
+  <listener>
     <listener-class>com.ljc.controller.MyServletContextListener</listener-class>
   </listener>
   <welcome-file-list>

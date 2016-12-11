@@ -25,6 +25,7 @@ public class GoLoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/login.jsp");//the login.jsp use for display the logining
+		System.out.print("Ω” ‹¡Àhttp");
 		requestDispatcher.forward(request, response);
 	}
 

@@ -85,7 +85,7 @@
 			 value=${password}></input>
 	<p>
 		<input name="submit" type="submit" value="submit" />
-		<a href="HelloServlet">访问hello</a>
+		<a href="HiServlet">访问hello</a>
 </form> 
 </body>
 </html>

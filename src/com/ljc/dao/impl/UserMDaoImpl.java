@@ -22,7 +22,7 @@ public class UserMDaoImpl implements UserMDao {
 	 * @return
 	 */
 	@Override
-	public User getUserByUserName(String username) {
+	public User getUserByUserName(String userName) {
 		Connection conn = null;
 		PreparedStatement sta = null;
 		ResultSet rs = null;
@@ -31,7 +31,7 @@ public class UserMDaoImpl implements UserMDao {
 			conn = DBUtil.getConnection();
 			String sql = "select id,username,pass from user where username=?";
 			sta = conn.prepareStatement(sql);
-			sta.setString(1, username);
+			sta.setString(1, userName);
 			rs = sta.executeQuery();
 			System.out.println("%%%%%%%");
 			System.out.println(rs);

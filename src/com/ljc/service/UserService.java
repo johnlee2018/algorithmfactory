@@ -13,7 +13,7 @@ public interface UserService {
 	 * @param pass
 	 * @return 0表示登陆成功，1表示用户不存在，2表示密码错误
 	 */
-	public int login(String username, String pass);
+	public int login(String userName, String pass);
 
 	/**
 	 * 检查用户名是否存在
