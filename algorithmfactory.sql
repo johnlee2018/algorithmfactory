@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.7.15-log)
-# Date: 2016-12-09 17:41:28
+# Date: 2016-12-13 11:15:36
 # Generator: MySQL-Front 5.4  (Build 1.19)
 
 /*!40101 SET NAMES utf8 */;
@@ -31,7 +31,7 @@ DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `Id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `level` int(11) DEFAULT NULL COMMENT 'the level of the user,the num 0 is the highest level',
-  `name` varchar(255) DEFAULT NULL COMMENT 'the name of the user ',
+  `username` varchar(255) DEFAULT NULL COMMENT 'the name of the user ',
   `pass` varchar(255) DEFAULT NULL COMMENT 'the pass of the user for loggin in ',
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='this is the user table';
