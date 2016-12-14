@@ -25,8 +25,13 @@ public class CheckUserServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		///System.out.print("/CheckUserServlet");
+
 		String userName = request.getParameter("userName");
 		boolean result = userService.isUserNameExist(userName);
+		//System.out.print(userName);
+		//System.out.print(result);
+
 		response.setContentType("application/json; charset=UTF-8");
 		// 以下两句为取消在本地的缓存
 		response.setHeader("Cache-Control", "no-cache");
@@ -37,6 +42,7 @@ public class CheckUserServlet extends HttpServlet {
 		sb.append(result);
 		//sb.append("</result>");
 		out.write(sb.toString());
+		
 		out.flush();
 		out.close();
 	}

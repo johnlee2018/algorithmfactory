@@ -8,8 +8,11 @@
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
+<script src="http://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
+
 <script type="text/javascript">
 	$().ready(function() {
+		
 		jQuery.validator.addMethod("checkUserExist", function(value, element) { //用jquery ajax的方法验证用户名是不是已存在  
 			var flag = 0;
 			var successFlag=0;
@@ -21,9 +24,9 @@
 				data : {
 					'userName' : value
 				},
-				success : function(msg) {
+				success : function(messages) {
 					successFlag=1;
-					if (msg) {
+					if (messages) {
 						flag = 1;
 					} else {
 						flag = 0;

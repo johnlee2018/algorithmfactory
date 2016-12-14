@@ -30,11 +30,14 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/login.jsp");
 		// 验证传递过来的参数是否正确，否则返回到登陆页面。
-		System.out.println("进入doGet了");
+		System.out.println("/LoginServlet");
 		if (this.checkParams(new String[] { userName, password })) {
 			// 登陆
 			int result = userService.login(userName, password);
 			// 成功登陆
+			System.out.println(result);
+			System.out.println(userName);
+			System.out.println(password);
 			if (result == 0) {
 				// 指定要返回的页面为succ.jsp
 				requestDispatcher = request.getRequestDispatcher("/user/succ.jsp");
