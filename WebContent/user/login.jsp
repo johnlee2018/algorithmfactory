@@ -8,7 +8,6 @@
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
-<script src="http://www.jq22.com/jquery/jquery-migrate-1.2.1.min.js"></script>
 
 <script type="text/javascript">
 	$().ready(function() {
