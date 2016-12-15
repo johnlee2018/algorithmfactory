@@ -35,25 +35,25 @@
 			
 			if(successFlag==0){
 				//访问失败，不返回错误信息
-				return true;
+				return false;
 			}else{
 				if (flag == 0) {
 					//用户不存在
-					return false;
+					return true;
 				} else {
 					//用户存在
-					return true;
+					return false;
 				}
 			}
-		}, "用户名不存在");
+		}, "用户名已存在");
 
-		$("#loginform").validate({
+		$("#registerform").validate({
 			rules : {
 				"userName" : {
 					required : true,
 					minlength : 3,
 					maxlength : 10,
-					//checkUserExist : true
+					checkUserExist : true
 				},
 				"password" : {
 					required : true,
@@ -78,7 +78,7 @@
 </script>
 
 <body>
-    <form action="LoginServlet" method="post" id="loginform"> 
+    <form action="RegisterServlet" method="post" id="registerform"> 
 		
 		<i class="W100SpanI">*</i>userName:<input type="text" id="userName" name="userName" size="20"
 		 value=${userName}></input>
@@ -86,7 +86,7 @@
 		<i class="W100SpanI">*</i>password:<input type="password" id="password" name="password" size="20"
 			 value=${password}></input>
 	<p>
-		<input name="submit" type="submit" value="submit" />
+		<input name="submit" type="submit" value="注册" />
 		<a href="HiServlet">访问hello</a>
 </form> 
 </body>

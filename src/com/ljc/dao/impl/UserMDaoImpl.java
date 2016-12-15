@@ -186,8 +186,9 @@ public class UserMDaoImpl implements UserMDao {
 		try
 		{
 			conn = DBUtil.getConnection();
-			String sql = null;
-	        sql += "insert into user values (?, ?)";
+			
+			String  sql = "insert into user(level,username,pass) values (2,?, ?)";
+	        System.out.println(sql);
 	        sta = conn.prepareStatement(sql);
 	        sta.setString(1, userName);
 	        sta.setString(2, password);

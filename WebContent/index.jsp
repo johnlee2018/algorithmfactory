@@ -3,7 +3,7 @@
 <body>
 	欢迎 欢迎 热烈欢迎..a
 	</br >
-	<a href="HelloServlet">say hello</a>
+	<a href="GoRegsiterServlet">register</a>
 	<br />
 	<a href="HiServlet">say hi</a>
 	<br />
