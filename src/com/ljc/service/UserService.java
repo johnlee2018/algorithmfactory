@@ -15,6 +15,7 @@ public interface UserService {
 	 */
 	public int login(String userName, String pass);
 
+
 	/**
 	 * 检查用户名是否存在
 	 * 
@@ -22,6 +23,7 @@ public interface UserService {
 	 * @param username
 	 * @return 不存在返回false，存在返回true
 	 */
+
 	public boolean isUserNameExist(String userName);
 
 	/**
@@ -32,5 +34,14 @@ public interface UserService {
 	 * @return
 	 */
 	public List<User> getUserByPage(int page, int pageCount);
+	/**
+	 * 注册新用户
+	 * 
+	 * @author li jianchun
+	 * @param user
+	 * @return 成功1，失败0
+	 */
+	
+	int register(String userName, String password);
 
 }

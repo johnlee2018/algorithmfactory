@@ -37,5 +37,6 @@ public interface UserMDao{
 	 */
 	public List <User> getUserByPage(PagePojo pagePojo);
 	
+	public int inserByUserNamePass(String userName,String password);
 	
 }

@@ -169,4 +169,55 @@ public class UserMDaoImpl implements UserMDao {
 		return user;
 	}
 
+	/**
+	 * 插入一条记录
+	 * 
+	 * @author li jianchun
+	 * @param PagePojo
+	 * @return
+	 */
+	@Override
+	public int inserByUserNamePass(String userName, String password) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement sta = null;
+		ResultSet rs = null;
+		int flag=0;
+		try
+		{
+			conn = DBUtil.getConnection();
+			String sql = null;
+	        sql += "insert into user values (?, ?)";
+	        sta = conn.prepareStatement(sql);
+	        sta.setString(1, userName);
+	        sta.setString(2, password);
+	         //statement.executeUpdate("INSERT INTO Customers " + "VALUES (1001, 'Simpson', 'Mr.', 'Springfield', 2001)");
+	        sta.executeUpdate();
+	        flag=1;
+	         
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			
+		}
+		finally
+		{
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (sta != null) {
+					sta.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			}
+			catch (SQLException e) {
+				}
+		}
+		return flag;
+	}
+
 }

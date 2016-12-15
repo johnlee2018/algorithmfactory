@@ -89,5 +89,19 @@ public class UserServiceImpl implements UserService{
 		List <User> users =userMDao.getUserByPage(pagePojo);
 		return users;
 	}
+
+
+
+	/* (non-Javadoc)
+	 * @see com.ljc.service.UserService#register(java.lang.String, java.lang.String)
+	 */
+	@Override
+	public int register(String userName,String password) {
+		// TODO Auto-generated method stub
+		UserMDao userMDao = new UserMDaoImpl();
+		int flag=userMDao.inserByUserNamePass(userName,password);
+		
+		return flag;
+	}
 	
 }
