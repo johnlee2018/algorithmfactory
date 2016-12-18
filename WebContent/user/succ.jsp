@@ -11,5 +11,6 @@
 	<p>
 		password:${password}
 	</p>
+	<a href="LogOutServlet">注销账户</a>
 </body>
 </html>

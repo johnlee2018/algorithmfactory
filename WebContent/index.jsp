@@ -14,7 +14,6 @@
 	<a href="UserServlet?page=1">第一页</a>
 	<br />
 	<a href="UserServlet?page=2">第二页</a>
-	<br />
 	
 </body>
 </html>
