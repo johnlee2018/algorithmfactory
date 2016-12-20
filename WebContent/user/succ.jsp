@@ -11,6 +11,7 @@
 	<p>
 		password:${password}
 	</p>
+	<a href="BubbleSortServlet">冒泡排序</a>
 	<a href="LogOutServlet">注销账户</a>
 </body>
 </html>

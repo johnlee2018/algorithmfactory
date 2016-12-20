@@ -9,12 +9,12 @@
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <body>
-    <form action="BubbleSortServlet" method="post" > 
+    <form action="DoBubbleSortServlet" method="post" > 
 	
-		userName:<input type="text" id="numstr" name="numstr" size="20"
+		numstr:<input type="text" id="numstr" name="numstr" size="20"
 		 value=${numstr}></input>
-		<input name="submit" type="submit" value="submit" />
-		<a href="BubbleSortServlet"></a>
+		<input name="submit" type="submit" value="Bubble" />
+		
 </form> 
 </body>
 </html>
