@@ -15,14 +15,14 @@ import org.springframework.cache.ehcache.EhCacheCache;
 /**
  * Servlet implementation class BubbleSortServlet
  */
-@WebServlet("/BubbleSortServlet")
-public class BubbleSortServlet extends HttpServlet {
+@WebServlet("/SortServlet")
+public class SortServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BubbleSortServlet() {
+    public SortServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

@@ -36,6 +36,7 @@ public class DoBubbleSortServlet extends HttpServlet {
 		response.setHeader("Pragma", "no-cache");
 
 		request.setAttribute("numstr",numstr);
+		request.setAttribute("algorithm","BubbleSort");
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/algorithm/bubbleSort.jsp");
 		requestDispatcher.forward(request, response);
 

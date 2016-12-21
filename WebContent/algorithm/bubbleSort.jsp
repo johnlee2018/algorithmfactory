@@ -6,6 +6,8 @@
 <title>排序结果</title>
 </head>
 <body>
+	<h2>使用算法</h2>
+	algorithm:${algorithm}
 	<h2>已排序</h2>
 	numstr:${numstr}
 </body>
