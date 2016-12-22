@@ -10,5 +10,6 @@
 	algorithm:${algorithm}
 	<h2>已排序</h2>
 	numstr:${numstr}
+	<h2><a href="SortServlet">冒泡排序</a></h2>
 </body>
 </html>

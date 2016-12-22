@@ -3,18 +3,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
-   <title>login page</title>  
+   <title>iuput nums page</title>  
 </head> 
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
-<body>
-    <form action="DoBubbleSortServlet" method="post" > 
+<script type="text/javascript">
+	$().ready(function() {
+		$("#bubbleSortform").validate({
+			rules : {
+				"numstr" : {
+					required : true,
+					//minlength : 3,
+					//maxlength : 10,
+					//checkUserExist : true
+				},
+			},
+			messages : {
+				"numstr" : {
+					required : "   can not be empty!",
+					//minlength : "用户名长度不能小于3",
+					//maxlength : "用户名长度不能大于10"
+				},
+			}
+		});
+	});
 	
+</script>
+<body>
+    <form action="DoBubbleSortServlet" method="post" id='bubbleSortform'> 
 		numstr:<input type="text" id="numstr" name="numstr" size="20"
-		 value=${numstr}></input>
+		value=${numstr}></input> <a> fill the nums by comma separated </a>
+		<br />
 		<input name="submit" type="submit" value="Bubble" />
-		
-</form> 
+	</form> 
 </body>
 </html>

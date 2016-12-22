@@ -57,6 +57,7 @@ public class DoBubbleSortServlet extends HttpServlet {
 		int numarr[] = new int[len];
 		int ex;
 		nums="";
+			
 		for (int i = 0; i < len; i++) 
 		{
 			numarr[i]=Integer.parseInt(arr[i]);
