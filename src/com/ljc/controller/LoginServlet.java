@@ -38,12 +38,6 @@ public class LoginServlet extends HttpServlet {
 			// 登陆
 			int result = userService.login(userName, password);
 			// 成功登陆
-			System.out.println(result);
-			System.out.println(md5password);
-			System.out.println(oripassword);
-			
-			System.out.println(password);
-			
 			if (result == 0) {
 				// 指定要返回的页面为succ.jsp
 				requestDispatcher = request.getRequestDispatcher("/user/succ.jsp");
