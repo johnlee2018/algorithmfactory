@@ -31,7 +31,7 @@
 	
 </script>
 <body>
-    <form action="DoBubbleSortServlet" method="post" id='bubbleSortform'> 
+    <form action="BubbleSortServlet" method="post" id='bubbleSortform'> 
 		numstr:<input type="text" id="numstr" name="numstr" size="20"
 		value=${numstr}></input> <a> fill the nums by comma separated </a>
 		<br />

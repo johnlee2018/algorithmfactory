@@ -2,7 +2,7 @@ package com.ljc.service.impl;
 
 import com.ljc.service.SortService;
 
-public class BubbleSortServiceImpl implements SortService{
+public class SortServiceImpl implements SortService{
 
 	 /**
 	 * @override
