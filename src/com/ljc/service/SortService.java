@@ -21,4 +21,12 @@ public interface SortService{
 	 */
 	public String bubbleSort(int[] numarr);
 	
+	/**
+	 * @author li jianchun
+	 * @param numarr
+	 * @return
+	 * 
+	 */
+	public String quickSort(int[] numarr);
+	
 }

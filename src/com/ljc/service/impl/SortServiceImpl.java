@@ -1,6 +1,7 @@
 package com.ljc.service.impl;
 
 import com.ljc.service.SortService;
+import com.sun.org.apache.bcel.internal.generic.SWAP;
 
 public class SortServiceImpl implements SortService{
 
@@ -63,5 +64,39 @@ public class SortServiceImpl implements SortService{
 	}
 	return nums;
 }
+
+	@Override
+	public String quickSort(int[] numarr) {
+		// TODO Auto-generated method stub
+		
+		
+		int middle=getMiddle(numarr,low,high);
+		
+		return null;
+	}
+	private int getMiddle(int[] numarr,int low,int high){
+		
+		int tmp =low;
+		while(low!=high)
+		{
+			if (numarr[tmp]>numarr[low])
+			{
+				swap(tmp,low);
+			}
+			low++;
+			if(numarr[tmp]<numarr[high])
+			{
+				swap(tmp,low);
+			}
+		}
+		return middle;
+	}
+
+	private void quickSortFun(int[] numarr, int low, int high) {
+		// TODO Auto-generated method stub
+		int middle=getMiddle(numarr, low, high);
+		quickSortFun(numarr, low, middle-1);
+		quickSortFun(numarr, middle+1,high );
+	}
 	
 }
