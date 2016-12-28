@@ -5,13 +5,6 @@ package com.ljc.service;
 public interface SortService{
 	
 
-	/**
-	 * @author li jianchun
-	 * @param nums
-	 * @return
-	 * 
-	 */
-	public int[] getIntArry(String nums); 
 	
 	/**
 	 * @author li jianchun
@@ -19,7 +12,7 @@ public interface SortService{
 	 * @return
 	 * 
 	 */
-	public String bubbleSort(int[] numarr);
+	public String bubbleSort(String nums);
 	
 	/**
 	 * @author li jianchun
@@ -27,6 +20,6 @@ public interface SortService{
 	 * @return
 	 * 
 	 */
-	public String quickSort(int[] numarr);
+	public String quickSort(String nums);
 	
 }

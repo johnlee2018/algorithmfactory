@@ -5,91 +5,100 @@ import com.sun.org.apache.bcel.internal.generic.SWAP;
 
 public class SortServiceImpl implements SortService{
 
-	 /**
-	 * @override
-	 * @author li jianchun
-	 * @param nums
-	 * @return
-	 * 
-	 */
+	private int numarr[];
+	private String nums = "";
+	private int len;
+	
+	
 	 
 	@Override
-	public int[] getIntArry(String nums) {
+	public String bubbleSort(String nums) 
+	{
+		this.nums=nums;
+		
+		if (nums != null)
+		{
+			getIntArry();
+		}
+			
+		for (int i=0; i<len;i++)
+		{
+			for (int j=i+1;j<len;j++)
+			{
+				if (numarr[j]>numarr[i])
+				{
+					swap(i,j);
+				}
+						
+			}
+		}
+		integNums();
+		return nums;
+	}
+
+	@Override
+	public String quickSort(String nums) {
+		// TODO Auto-generated method stub
+		this.nums=nums;
+		
+		if (nums != null)
+		{
+			getIntArry();
+		}
+		int low = 0;
+		int high=numarr.length;
+		quickSortFun(numarr,low,high);
+		integNums();
+		return nums;
+	}
+	
+	private void getIntArry() {
 		// TODO Auto-generated method stub
 		
 		String[] arr=nums.split(",");
-		int len =arr.length;
-		int numarr[] = new int[len];
+		len =arr.length;
+		numarr = new int[len];
 		for (int i = 0; i < len; i++) 
 		{
 			numarr[i]=Integer.parseInt(arr[i]);
 		}
 		
-		return numarr;
 	}
 	
-	 /**
-	 * @override
-	 * @author li jianchun
-	 * @param numarr
-	 * @return
-	 * 
-	 */
-	 
-	@Override
-	public String bubbleSort(int[] numarr) 
-	{
-	// TODO Auto-generated method stub
-	int len =numarr.length;
-	int ex;
-	String nums = "";	
-	for (int i=0; i<len;i++)
-	{
-		for (int j=i+1;j<len;j++)
+	private void swap(int i, int j) {
+		int ex;
+		ex=numarr[j];
+		numarr[j]=numarr[i];
+		numarr[i]=ex;
+	}
+
+	
+	private void integNums() {
+		// TODO Auto-generated method stub
+		for (int i : numarr) 
 		{
-			if (numarr[j]>numarr[i])
-			{
-				ex=numarr[j];
-				numarr[j]=numarr[i];
-				numarr[i]=ex;
-			}
-					
+			nums += String.valueOf(i)+",";
 		}
 	}
-	
-	for (int i : numarr) 
-	{
-		nums += String.valueOf(i)+",";
 
-	}
-	return nums;
-}
-
-	@Override
-	public String quickSort(int[] numarr) {
-		// TODO Auto-generated method stub
-		
-		
-		int middle=getMiddle(numarr,low,high);
-		
-		return null;
-	}
 	private int getMiddle(int[] numarr,int low,int high){
 		
-		int tmp =low;
+		int key =numarr[low];
 		while(low!=high)
 		{
-			if (numarr[tmp]>numarr[low])
+			while(low<high && key<=numarr[high])
 			{
-				swap(tmp,low);
+				high--;
 			}
-			low++;
-			if(numarr[tmp]<numarr[high])
+			numarr[low]=numarr[high];
+			while(low<high && key>=numarr[low])
 			{
-				swap(tmp,low);
+				low++;
 			}
+			numarr[high]=numarr[low];
 		}
-		return middle;
+		numarr[high]=key;
+		return high;
 	}
 
 	private void quickSortFun(int[] numarr, int low, int high) {
