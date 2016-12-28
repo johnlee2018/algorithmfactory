@@ -11,7 +11,7 @@
 	<p>
 		password:${password}
 	</p>
-	<a href="SortServlet">冒泡排序</a>
+	<a href="SortServlet">排序</a>
 	<a href="LogOutServlet">注销账户</a>
 </body>
 </html>

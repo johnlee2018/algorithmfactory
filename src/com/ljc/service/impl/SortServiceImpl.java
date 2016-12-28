@@ -14,8 +14,8 @@ public class SortServiceImpl implements SortService{
 	@Override
 	public String bubbleSort(String nums) 
 	{
-		this.nums=nums;
 		
+		this.nums=nums;
 		if (nums != null)
 		{
 			getIntArry();
@@ -32,8 +32,10 @@ public class SortServiceImpl implements SortService{
 						
 			}
 		}
+		
 		integNums();
-		return nums;
+		
+		return this.nums;
 	}
 
 	@Override
@@ -46,7 +48,7 @@ public class SortServiceImpl implements SortService{
 			getIntArry();
 		}
 		int low = 0;
-		int high=numarr.length;
+		int high=numarr.length-1;
 		quickSortFun(numarr,low,high);
 		integNums();
 		return nums;
@@ -58,9 +60,15 @@ public class SortServiceImpl implements SortService{
 		String[] arr=nums.split(",");
 		len =arr.length;
 		numarr = new int[len];
+		
+
+
 		for (int i = 0; i < len; i++) 
 		{
+			
 			numarr[i]=Integer.parseInt(arr[i]);
+			System.out.print("******");
+			System.out.print(numarr[i]);
 		}
 		
 	}
@@ -75,10 +83,12 @@ public class SortServiceImpl implements SortService{
 	
 	private void integNums() {
 		// TODO Auto-generated method stub
+		String nums="";
 		for (int i : numarr) 
 		{
 			nums += String.valueOf(i)+",";
 		}
+		this.nums=nums;
 	}
 
 	private int getMiddle(int[] numarr,int low,int high){
@@ -90,6 +100,11 @@ public class SortServiceImpl implements SortService{
 			{
 				high--;
 			}
+			System.out.println("low");
+			System.out.println(low);
+			System.out.println("high");
+			System.out.println(high);
+			
 			numarr[low]=numarr[high];
 			while(low<high && key>=numarr[low])
 			{

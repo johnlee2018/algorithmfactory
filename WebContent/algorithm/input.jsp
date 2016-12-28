@@ -27,6 +27,19 @@
 				},
 			}
 		});
+		$("#quickSortform").validate({
+			rules : {
+				"numstr" : {
+					required : true,
+				},
+			},
+			messages : {
+				"numstr" : {
+					required : "   can not be empty!",
+				},
+			}
+		});
+
 	});
 	
 </script>
@@ -37,5 +50,12 @@
 		<br />
 		<input name="submit" type="submit" value="Bubble" />
 	</form> 
+    <form action="QuickSortServlet" method="post" id='quickSortform'> 
+		numstr:<input type="text" id="numstr" name="numstr" size="20"
+		value=${numstr}></input> <a> fill the nums by comma separated </a>
+		<br />
+		<input name="submit" type="submit" value="Quick" />
+	</form> 
+
 </body>
 </html>
