@@ -49,7 +49,12 @@ public class SortServiceImpl implements SortService{
 		}
 		int low = 0;
 		int high=numarr.length-1;
-		quickSortFun(numarr,low,high);
+		System.out.println("52low");
+		System.out.println(low);
+		System.out.println("54high");
+		System.out.println(high);
+		
+		quickSortFun(low,high);
 		integNums();
 		return nums;
 	}
@@ -65,10 +70,10 @@ public class SortServiceImpl implements SortService{
 
 		for (int i = 0; i < len; i++) 
 		{
-			
 			numarr[i]=Integer.parseInt(arr[i]);
-			System.out.print("******");
-			System.out.print(numarr[i]);
+			System.out.println("******");
+			System.out.println(numarr[i]);
+			//System.out.println(numarr[i]);
 		}
 		
 	}
@@ -116,11 +121,11 @@ public class SortServiceImpl implements SortService{
 		return high;
 	}
 
-	private void quickSortFun(int[] numarr, int low, int high) {
+	private void quickSortFun( int low, int high) {
 		// TODO Auto-generated method stub
 		int middle=getMiddle(numarr, low, high);
-		quickSortFun(numarr, low, middle-1);
-		quickSortFun(numarr, middle+1,high );
+		quickSortFun(low, middle-1);
+		quickSortFun(middle+1,high );
 	}
 	
 }
