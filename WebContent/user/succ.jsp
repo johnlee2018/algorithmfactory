@@ -12,6 +12,9 @@
 		password:${password}
 	</p>
 	<a href="SortServlet">排序</a>
+	<a href="GoImprovementServlet">改善</a>
 	<a href="LogOutServlet">注销账户</a>
+	
+	
 </body>
 </html>

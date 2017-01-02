@@ -2,6 +2,7 @@ package com.ljc.controller;
 
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
+import java.nio.file.Paths;
 
 import javax.servlet.annotation.WebServlet;
 //@WebServlet("/Log")
@@ -11,8 +12,15 @@ public class Log{
 		PrintWriter out=null;
 		try
 		{
-			out=new PrintWriter(new FileOutputStream("e://log.txt",true));
-			out.println(new java.util.Date()+"::Form ContextListener:"+message);
+			//String s=System.getProperty("user.dir");
+			//application.getRealPath();
+			//System.out.println(s);
+			
+			FileOutputStream fileOutputStream=new FileOutputStream("log.txt",true);
+			//Paths.get(fileOutputStream);
+			out=new PrintWriter(fileOutputStream);
+			//String absolutePath = fileOutputStream.();
+			out.println(new java.util.Date()+" :: Form ContextListener : "+message);
 			out.close();
 		}
 		catch(Exception e)
