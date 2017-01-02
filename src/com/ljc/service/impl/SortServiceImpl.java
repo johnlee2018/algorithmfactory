@@ -8,9 +8,6 @@ public class SortServiceImpl implements SortService{
 	private int numarr[];
 	private String nums = "";
 	private int len;
-	
-	
-	 
 	@Override
 	public String bubbleSort(String nums) 
 	{
@@ -25,7 +22,7 @@ public class SortServiceImpl implements SortService{
 		{
 			for (int j=i+1;j<len;j++)
 			{
-				if (numarr[j]>numarr[i])
+				if (numarr[j]<numarr[i])
 				{
 					swap(i,j);
 				}
@@ -34,29 +31,24 @@ public class SortServiceImpl implements SortService{
 		}
 		
 		integNums();
-		
 		return this.nums;
 	}
 
 	@Override
 	public String quickSort(String nums) {
 		// TODO Auto-generated method stub
-		this.nums=nums;
 		
+		this.nums=nums;
 		if (nums != null)
 		{
 			getIntArry();
 		}
 		int low = 0;
 		int high=numarr.length-1;
-		System.out.println("52low");
-		System.out.println(low);
-		System.out.println("54high");
-		System.out.println(high);
-		
 		quickSortFun(low,high);
 		integNums();
-		return nums;
+		
+		return this.nums;
 	}
 	
 	private void getIntArry() {
@@ -71,9 +63,6 @@ public class SortServiceImpl implements SortService{
 		for (int i = 0; i < len; i++) 
 		{
 			numarr[i]=Integer.parseInt(arr[i]);
-			System.out.println("******");
-			System.out.println(numarr[i]);
-			//System.out.println(numarr[i]);
 		}
 		
 	}
@@ -89,6 +78,12 @@ public class SortServiceImpl implements SortService{
 	private void integNums() {
 		// TODO Auto-generated method stub
 		String nums="";
+	    for(int i=0;i<numarr.length;i++)
+	    {
+	        System.out.println("%%integNums%%");
+	        System.out.println(numarr[i]);  
+	    }
+		
 		for (int i : numarr) 
 		{
 			nums += String.valueOf(i)+",";
@@ -99,33 +94,36 @@ public class SortServiceImpl implements SortService{
 	private int getMiddle(int[] numarr,int low,int high){
 		
 		int key =numarr[low];
-		while(low!=high)
+		while(low<high)
 		{
 			while(low<high && key<=numarr[high])
 			{
-				high--;
+				high=high-1;
 			}
-			System.out.println("low");
-			System.out.println(low);
-			System.out.println("high");
-			System.out.println(high);
-			
 			numarr[low]=numarr[high];
 			while(low<high && key>=numarr[low])
 			{
-				low++;
+				low=low+1;
 			}
 			numarr[high]=numarr[low];
 		}
 		numarr[high]=key;
-		return high;
+		this.numarr=numarr;
+	    for(int i=0;i<numarr.length;i++)
+	    {
+	        System.out.println("%%%%");
+	        System.out.println(numarr[i]);  
+	    }
+		
+		return low;
 	}
 
 	private void quickSortFun( int low, int high) {
 		// TODO Auto-generated method stub
-		int middle=getMiddle(numarr, low, high);
-		quickSortFun(low, middle-1);
-		quickSortFun(middle+1,high );
+	if (low < high) { 
+			int middle=getMiddle(numarr, low, high);
+			quickSortFun(low, middle-1);
+			quickSortFun(middle+1,high );
+		}
 	}
-	
 }

@@ -36,6 +36,7 @@ public class QuickSortServlet extends HttpServlet {
 		SortService sortService=new SortServiceImpl();
 		
 		String nums=request.getParameter("numstr");
+		
 		String numstr=sortService.quickSort(nums);
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
