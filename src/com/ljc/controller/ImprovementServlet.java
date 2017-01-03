@@ -42,8 +42,8 @@ public class ImprovementServlet extends HttpServlet {
 		System.out.println("&&&&&&&&");
 		System.out.println(message);
 		System.out.println(message.getBytes());
-		String utfmessage= new String(message.getBytes(), "utf-8");
-		String gbkmessage= new String(message.getBytes(), "gbk");
+		String utfmessage= new String(message.getBytes("iso-8859-1"), "utf-8");
+		String gbkmessage= new String(message.getBytes("iso-8859-1"), "gbk");
 		System.out.println(utfmessage);
 		System.out.println(gbkmessage);
 		System.out.println(path.split("\\\\")[1]);
