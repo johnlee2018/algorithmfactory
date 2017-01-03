@@ -32,16 +32,21 @@ public class ImprovementServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String message=request.getParameter("message");
+		response.setContentType("application/json; charset=UTF-8");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
 		FileOutputStream fos=null;
 		OutputStreamWriter osw=null;
 		
 		String path=request.getServletContext().getRealPath("");
-		//System.out.println("&&&&&&&&");
-		//System.out.println(path);
-		//System.out.println(path.split("\\\\")[0]);
-		//System.out.println(path.split("\\\\")[1]);
+		System.out.println("&&&&&&&&");
+		System.out.println(message);
+		System.out.println(message.getBytes());
+		String utfmessage= new String(message.getBytes(), "utf-8");
+		String gbkmessage= new String(message.getBytes(), "gbk");
+		System.out.println(utfmessage);
+		System.out.println(gbkmessage);
+		System.out.println(path.split("\\\\")[1]);
 		String[] pathString=path.split("\\\\");
 //		try{
 //			String rootPath1=pathString[-1];
@@ -62,7 +67,8 @@ public class ImprovementServlet extends HttpServlet {
 		{
 			fos = new FileOutputStream(rootPath+"improvement.txt",true);   
 		    osw = new OutputStreamWriter(fos, "UTF-8");   
-		    osw.write(new java.util.Date()+":: Need improve : "+message);   
+		    osw.write(new java.util.Date()+":: Need improve : "+utfmessage+"\n");  
+		    osw.write(new java.util.Date()+":: Need improve : "+gbkmessage+"\n");   
 		    osw.flush();  
 			
 			//out=new PrintWriter(new FileOutputStream(rootPath+"improvement.txt",true));
