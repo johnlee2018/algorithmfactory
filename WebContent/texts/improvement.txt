@@ -1,8 +1,1 @@
-Wed Jan 04 09:59:10 CST 2017 :: Need improve : 新增
-Wed Jan 04 14:00:40 CST 2017 :: Need improve : 将已经写入的建议显示在页面
-Wed Jan 04 14:51:42 CST 2017 :: Need improve : 增加显示文本
-Wed Jan 04 17:50:49 CST 2017 :: Need improve : 增加显示
-Wed Jan 04 17:51:49 CST 2017 :: Need improve : 增加显示
-Wed Jan 04 17:52:08 CST 2017 :: Need improve : 再次增加显示
-Wed Jan 04 17:52:13 CST 2017 :: Need improve : 再次增加显示
-Wed Jan 04 17:52:33 CST 2017 :: Need improve : 再次1增加显示
+Wed Jan 04 22:10:31 CST 2017 :: Need improve : 增加每一步验证是否登录

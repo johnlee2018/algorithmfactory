@@ -36,7 +36,7 @@ public class ImprovementServlet extends HttpServlet {
 		response.setContentType("application/json; charset=UTF-8");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
-		PrintWriter out=null;
+		PrintWriter out = null;
 		//PrintReader in=null;
 		String path=request.getServletContext().getRealPath("");
 		String utfmessage= new String(message.getBytes("iso-8859-1"), "utf-8");
@@ -49,7 +49,7 @@ public class ImprovementServlet extends HttpServlet {
 			out=new PrintWriter(fileOutputStream);
 			out.println(new java.util.Date()+" :: Need improve : "+utfmessage);
      		out.close();
-    		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/inputImprovement.jsp");
+    		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/inputImprovementSucc.jsp");
     		requestDispatcher.forward(request, response);
      		
 

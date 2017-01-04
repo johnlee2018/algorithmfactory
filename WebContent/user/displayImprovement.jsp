@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
-		$("#improvementform").validate({
+		$("#displayimprovementform").validate({
 			rules : {
 				"message" : {
 					required : true,
@@ -34,13 +34,13 @@
 <body>
 
 	<h3>${text}</h3>
-    <form action="ImprovementServlet" method="post" id='improvementform'> 
+    <form action="ImprovementServlet" method="post" id='displayimprovementform'> 
 		numstr:<input type="text" id="message" name="message" size="20"
 		value=${message}></input> <a> fill the advice </a>
 		<br />
 		<input name="submit" type="submit" value="improvement" />
 	</form> 
-	    <form action="LoginServlet" method="post" > 
+	<form action="LoginServlet" method="post" > 
 
 		<input name="submit" type="submit" value="回首页" />
 	</form> 

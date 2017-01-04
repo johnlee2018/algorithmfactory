@@ -41,30 +41,43 @@ public class GoImprovementServlet extends HttpServlet {
 		
 		try 
 		{
-            String encoding="GBK";
+            //String encoding="GBK";
             File file=new File(filePath);
             if(file.isFile() && file.exists())
             { //判断文件是否存在FileOutputStream
-            	InputStreamReader read = new InputStreamReader(new FileInputStream(file),encoding);//考虑到编码格式
-                BufferedReader bufferedReader = new BufferedReader(read);
-                String lineTxt = null;
-                String stringTxt = null;
-                while((lineTxt = bufferedReader.readLine()) != null)
-                {
-                	System.out.println("^^^^^^^^^");
-                    System.out.println(lineTxt);
-                    stringTxt+=lineTxt+"<br>";
-                }
-                read.close();
-                request.setAttribute("text", stringTxt);
-        		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/displayImprovement.jsp");
-        		requestDispatcher.forward(request, response);
-
+            	//InputStreamReader read = new InputStreamReader(new FileInputStream(file),encoding);//考虑到编码格式
+            	System.out.println("指定的文件存在");
 		    }
             else
             {
 		        System.out.println("找不到指定的文件");
-		    }
+		        try
+		        {
+		        	file.createNewFile();
+		        	System.out.println("创建文件成功！"); 
+		        }
+		        catch(Exception e)
+		        {
+		        	e.printStackTrace();
+		        	System.out.println("创建文件失败！");
+		        }
+	            
+            }  
+        	InputStreamReader read = new InputStreamReader(new FileInputStream(file));
+        	BufferedReader bufferedReader = new BufferedReader(read);
+            String lineTxt = null;
+            String stringTxt = null;
+            while((lineTxt = bufferedReader.readLine()) != null)
+            {
+            	System.out.println("^^^^^^^^^");
+                System.out.println(lineTxt);
+                stringTxt+=lineTxt+"<br>";
+            }
+            read.close();
+            request.setAttribute("text", stringTxt);
+    		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/displayImprovement.jsp");
+    		requestDispatcher.forward(request, response);
+            
 		} 
 		catch (Exception e) 
 		{
