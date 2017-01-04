@@ -1,6 +1,10 @@
 package com.ljc.controller;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,9 +32,45 @@ public class GoImprovementServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/algorithm/inputImprovement.jsp");
+		String path=request.getServletContext().getRealPath("");
+		
+		String[] pathString=path.split("\\\\");
+		String filePath=pathString[0]+"\\"+pathString[1];
+		filePath=filePath+"\\algorithmfactory\\WebContent\\texts\\improvement.txt";
 
-		requestDispatcher.forward(request, response);
+		
+		try 
+		{
+            String encoding="GBK";
+            File file=new File(filePath);
+            if(file.isFile() && file.exists())
+            { //判断文件是否存在FileOutputStream
+            	InputStreamReader read = new InputStreamReader(new FileInputStream(file),encoding);//考虑到编码格式
+                BufferedReader bufferedReader = new BufferedReader(read);
+                String lineTxt = null;
+                String stringTxt = null;
+                while((lineTxt = bufferedReader.readLine()) != null)
+                {
+                	System.out.println("^^^^^^^^^");
+                    System.out.println(lineTxt);
+                    stringTxt+=lineTxt+"<br>";
+                }
+                read.close();
+                request.setAttribute("text", stringTxt);
+        		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/displayImprovement.jsp");
+        		requestDispatcher.forward(request, response);
+
+		    }
+            else
+            {
+		        System.out.println("找不到指定的文件");
+		    }
+		} 
+		catch (Exception e) 
+		{
+        System.out.println("读取文件内容出错");
+        e.printStackTrace();
+		}		
 	}
 
 	/**

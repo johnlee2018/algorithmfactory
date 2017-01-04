@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,50 +36,27 @@ public class ImprovementServlet extends HttpServlet {
 		response.setContentType("application/json; charset=UTF-8");
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
-		FileOutputStream fos=null;
-		OutputStreamWriter osw=null;
-		
+		PrintWriter out=null;
+		//PrintReader in=null;
 		String path=request.getServletContext().getRealPath("");
-		System.out.println("&&&&&&&&");
-		System.out.println(message);
-		System.out.println(message.getBytes());
 		String utfmessage= new String(message.getBytes("iso-8859-1"), "utf-8");
-		String gbkmessage= new String(message.getBytes("iso-8859-1"), "gbk");
-		System.out.println(utfmessage);
-		System.out.println(gbkmessage);
-		System.out.println(path.split("\\\\")[1]);
 		String[] pathString=path.split("\\\\");
-//		try{
-//			String rootPath1=pathString[-1];
-//			System.out.print(rootPath1);
-//		}
-//		catch(Exception e)
-//		{
-//			e.printStackTrace();
-//		}
-		
-		String rootPath=pathString[0]+"\\"+pathString[1];//\\texts+"\\"+pathString[-1]
-		rootPath=rootPath+"\\algorithmfactory\\WebContent\\texts\\";
-		//System.out.println("&&&&&&&&");
-		//System.out.println(path);
-		
-		//System.out.println(out);
+		String filePath=pathString[0]+"\\"+pathString[1];
+		filePath=filePath+"\\algorithmfactory\\WebContent\\texts\\improvement.txt";
 		try
 		{
-			fos = new FileOutputStream(rootPath+"improvement.txt",true);   
-		    osw = new OutputStreamWriter(fos, "UTF-8");   
-		    osw.write(new java.util.Date()+":: Need improve : "+utfmessage+"\n");  
-		    osw.write(new java.util.Date()+":: Need improve : "+gbkmessage+"\n");   
-		    osw.flush();  
-			
-			//out=new PrintWriter(new FileOutputStream(rootPath+"improvement.txt",true));
-			//out.println(new java.util.Date()+":: Need improve : "+message);
-			//out.close();
+			FileOutputStream fileOutputStream=new FileOutputStream(filePath,true);
+			out=new PrintWriter(fileOutputStream);
+			out.println(new java.util.Date()+" :: Need improve : "+utfmessage);
+     		out.close();
+    		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/inputImprovement.jsp");
+    		requestDispatcher.forward(request, response);
+     		
+
 		}
 		catch(Exception e)
 		{
-			osw.close();
-			fos.close();
+			out.close();
 			e.printStackTrace();
 		}
 
