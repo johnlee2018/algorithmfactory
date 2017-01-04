@@ -34,7 +34,7 @@
 <body>
 
 	<h3>${text}</h3>
-    <form action="GoImprovementServlet" method="post" id='improvementform'> 
+    <form action="ImprovementServlet" method="post" id='improvementform'> 
 		numstr:<input type="text" id="message" name="message" size="20"
 		value=${message}></input> <a> fill the advice </a>
 		<br />
