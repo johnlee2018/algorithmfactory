@@ -6,14 +6,14 @@
 <title>login page</title>
 </head>
 <body>
-	<h2>已登陆</h2>
+	<h2>恭喜您注册成功</h2>
 	userName:${userName}
 	<p>
 		password:${password}
 	</p>
-	<a href="SortServlet">排序</a>
-	<a href="GoImprovementServlet">改善</a>
-	<a href="LogOutServlet">注销账户</a>
+	
+	<a href="LoginServlet">返回首页</a>
+	<a href="LogOutServlet">重新登录</a>
 	
 	
 </body>

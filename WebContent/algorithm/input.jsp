@@ -14,16 +14,11 @@
 			rules : {
 				"numstr" : {
 					required : true,
-					//minlength : 3,
-					//maxlength : 10,
-					//checkUserExist : true
 				},
 			},
 			messages : {
 				"numstr" : {
 					required : "   can not be empty!",
-					//minlength : "用户名长度不能小于3",
-					//maxlength : "用户名长度不能大于10"
 				},
 			}
 		});
@@ -55,6 +50,11 @@
 		value=${numstr}></input> <a> fill the nums by comma separated </a>
 		<br />
 		<input name="submit" type="submit" value="Quick" />
+	</form> 
+
+	<form action="LoginServlet" method="post" > 
+
+		<input name="submit" type="submit" value="回首页" />
 	</form> 
 
 </body>

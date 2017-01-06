@@ -47,7 +47,7 @@ public class RegisterServlet extends HttpServlet {
 		
 		if (flag==1)
 		{
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/succ.jsp");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/succ.jsp");
 			HttpSession httpSession = request.getSession();
 			// 将用户名放入session
 			httpSession.setAttribute("currentUser", userName);
@@ -55,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
 		}
 		else if (flag==0)
 		{
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/register.jsp");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("/register.jsp");
 			requestDispatcher.forward(request, response);
 		}
 	}

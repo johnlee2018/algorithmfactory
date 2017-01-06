@@ -23,7 +23,7 @@ public class GoLoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/login.jsp");//the login.jsp use for display the logining
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.jsp");//the login.jsp use for display the logining
 		//System.out.print("Ω” ‹¡Àhttp");
 		requestDispatcher.forward(request, response);
 	}

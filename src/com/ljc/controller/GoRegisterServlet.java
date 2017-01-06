@@ -21,7 +21,7 @@ public class GoRegisterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/user/register.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/register.jsp");
 		requestDispatcher.forward(request, response);
 	}
 

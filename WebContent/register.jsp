@@ -87,7 +87,12 @@
 			 value=${password}></input>
 	<p>
 		<input name="submit" type="submit" value="注册" />
-		<a href="HiServlet">访问hello</a>
-</form> 
+		
+	</form> 
+	<form action="LoginServlet" method="post" > 
+	<p>
+		<input name="submit" type="submit" value="回首页" />
+	</form> 
+
 </body>
 </html>

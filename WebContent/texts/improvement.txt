@@ -1,1 +1,3 @@
 Wed Jan 04 22:10:31 CST 2017 :: Need improve : 增加每一步验证是否登录
+Fri Jan 06 11:01:07 CST 2017 :: Need improve : 完成每一步验证用户是否登录
+Fri Jan 06 14:49:06 CST 2017 :: Need improve : 问题描述 ：没次登录之后，再次返回登录界面 依然出现登录密码

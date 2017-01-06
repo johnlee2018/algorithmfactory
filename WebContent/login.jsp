@@ -86,8 +86,11 @@
 		password:<input type="password" id="password" name="password" size="20"
 			 value=${password}></input>
 	<p>
-		<input name="submit" type="submit" value="submit" />
-		<a href="HiServlet">访问hello</a>
-</form> 
+		<input name="submit" type="submit" value="登录" /></input>
+	</form>	
+    <form action="GoRegsiterServlet" method="post" id="regsiterform"> 
+			<input name="submit" type="submit" value="注册" /></input>
+	</form>	
+ 
 </body>
 </html>
