@@ -11,18 +11,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.xalan.xslt.ElemIf;
+
+import com.mysql.jdbc.StringUtils;
+import com.sun.org.apache.xpath.internal.operations.And;
+
 @WebServlet("/LoginFilter")
 public class LoginFilter implements Filter  {
-	public void  init(FilterConfig config) throws ServletException {
-		// 获取初始化参数
-		//String site = config.getInitParameter("Site"); 
-		// 输出初始化参数
-		//System.out.println("网站名称: " + site);
-		//使用计数器
-		//ServletContext sc=config.getServletContext();
-		//sc.setAttribute("counter",0);
-
-	}
+	private String excludedPages;       
+	private String[] excludedPageArray; 
+	public void  init(FilterConfig fConfig) throws ServletException {
+		excludedPages = fConfig.getInitParameter("excludedPages");
+		System.out.println("+++++");
+		System.out.println(excludedPages);
+		if (excludedPages != null) {     
+		excludedPageArray = excludedPages.split(",");     
+		}     
+		
+		}     
+	
 	public void  doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws java.io.IOException, ServletException {
 		// 输出站点名称
 		//String username=null;
@@ -30,17 +37,52 @@ public class LoginFilter implements Filter  {
 		HttpServletResponse httpresponse=(HttpServletResponse) response;
 		HttpSession session=httprequest.getSession();
 		System.out.println("***&&&&&&&&&");
-		System.out.println(httprequest.getContextPath());
+		String request_uri = httprequest.getRequestURI(); 
+		String ctx_path = httprequest.getContextPath(); 
+		System.out.println(excludedPageArray[0]);
+		System.out.println(request_uri);
+		System.out.println(ctx_path);
+		System.out.println(request_uri.substring(ctx_path.length()));
 		System.out.println(session.getAttribute("currentUser"));
 		
+		boolean isExcludedPage = false;
+		if (excludedPageArray != null)
+		{
+			for (String page : excludedPageArray)
+			{
+				System.out.println("--page---");
+				System.out.println(page);
+				System.out.println("-----");
+				System.out.println(httprequest.getServletPath());
 
-		if (session.getAttribute("currentUser")!=null)
+				if (httprequest.getServletPath().equals(page))
+				{
+
+					isExcludedPage = true;     
+					break;     
+
+				}
+			}
+	
+		}
+
+     
+		System.out.println(isExcludedPage);
+		//if (request_uri.substring(ctx_path.length()).equals( "login.jsp ")) 
+	if (isExcludedPage) 
+	{//在过滤url之外
+		
+		chain.doFilter(request, response);     
+	} 
+	else{
+		if ((session.getAttribute("currentUser")!=null)  )
 		{
 			chain.doFilter(request,response);
 		}
-		else
-		{
+		else 
+			{
 			httpresponse.sendRedirect(httprequest.getContextPath()+"/login.jsp");
+			}
 		}
 	}
 	public void destroy(){
