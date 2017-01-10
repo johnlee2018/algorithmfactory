@@ -3,14 +3,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
-   <title>iuput nums page</title>  
+   <title>input nums page</title>  
 </head> 
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script type="text/javascript" src="js/jquery.metadata.js"></script>
 <script type="text/javascript">
 	$().ready(function() {
-		$("#bubbleSortform").validate({
+		$("#sortform").validate({
 			rules : {
 				"numstr" : {
 					required : true,
@@ -39,23 +39,23 @@
 	
 </script>
 <body>
-    <form action="BubbleSortServlet" method="post" id='bubbleSortform'> 
+    <form action="BubbleSortServlet" method="post" id='sortform'> 
 		numstr:<input type="text" id="numstr" name="numstr" size="20"
 		value=${numstr}></input> <a> fill the nums by comma separated </a>
 		<br />
 		<input name="submit" type="submit" value="Bubble" />
 	</form> 
-    <form action="QuickSortServlet" method="post" id='quickSortform'> 
+    <form action="QuickSortServlet" method="post" id='sortform'> 
 		numstr:<input type="text" id="numstr" name="numstr" size="20"
 		value=${numstr}></input> <a> fill the nums by comma separated </a>
 		<br />
 		<input name="submit" type="submit" value="Quick" />
 	</form> 
 
-	<form action="LoginServlet" method="post" > 
+	<form action="/algorithmfactory/LoginServlet" method="post" > 
 
 		<input name="submit" type="submit" value="回首页" />
 	</form> 
-
+		
 </body>
 </html>

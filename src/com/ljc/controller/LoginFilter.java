@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.xalan.xslt.ElemIf;
+
 
 import com.mysql.jdbc.StringUtils;
 import com.sun.org.apache.xpath.internal.operations.And;
@@ -21,13 +21,13 @@ public class LoginFilter implements Filter  {
 	private String excludedPages;       
 	private String[] excludedPageArray; 
 	public void  init(FilterConfig fConfig) throws ServletException {
-		excludedPages = fConfig.getInitParameter("excludedPages");
-		System.out.println("+++++");
-		System.out.println(excludedPages);
-		if (excludedPages != null) {     
-		excludedPageArray = excludedPages.split(",");     
-		}     
-		
+		//excludedPages = fConfig.getInitParameter("excludedPages");
+		//System.out.println("+++++");
+		//System.out.println(excludedPages);
+		//if (excludedPages != null) 
+		//{     
+		//    excludedPageArray = excludedPages.split(",");     
+		//}     
 		}     
 	
 	public void  doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws java.io.IOException, ServletException {
@@ -36,55 +36,58 @@ public class LoginFilter implements Filter  {
 		HttpServletRequest httprequest=(HttpServletRequest) request;
 		HttpServletResponse httpresponse=(HttpServletResponse) response;
 		HttpSession session=httprequest.getSession();
-		System.out.println("***&&&&&&&&&");
+		//System.out.println("***&&&&&&&&&");
 		String request_uri = httprequest.getRequestURI(); 
-		String ctx_path = httprequest.getContextPath(); 
-		System.out.println(excludedPageArray[0]);
-		System.out.println(request_uri);
-		System.out.println(ctx_path);
-		System.out.println(request_uri.substring(ctx_path.length()));
-		System.out.println(session.getAttribute("currentUser"));
+		String ctx_path = httprequest.getContextPath();
 		
-		boolean isExcludedPage = false;
-		if (excludedPageArray != null)
-		{
-			for (String page : excludedPageArray)
-			{
-				System.out.println("--page---");
-				System.out.println(page);
-				System.out.println("-----");
-				System.out.println(httprequest.getServletPath());
+		//System.out.println(excludedPageArray[0]);
+		//System.out.println(request_uri);
+		//System.out.println(ctx_path);
+		//System.out.println(httprequest.getServletPath());
+		//System.out.println(session.getAttribute("888888888"));
+		//System.out.println(request_uri.substring(ctx_path.length()));
+		//System.out.println(session.getAttribute("currentUser"));
+		
+		//boolean isExcludedPage = false;
+//		if (excludedPageArray != null)
+//		{
+//			for (String page : excludedPageArray)
+//			{
+//				System.out.println("--page---");
+//				System.out.println(page);
+//				System.out.println("-----");
+//				System.out.println(httprequest.getServletPath());
+//
+//				if (httprequest.getServletPath().equals(page))
+//				{
+//
+//					isExcludedPage = true;     
+//					break;     
+//
+//				}
+//			}
+//	
+//		}
 
-				if (httprequest.getServletPath().equals(page))
-				{
-
-					isExcludedPage = true;     
-					break;     
-
-				}
-			}
-	
-		}
-
-     
-		System.out.println(isExcludedPage);
 		//if (request_uri.substring(ctx_path.length()).equals( "login.jsp ")) 
-	if (isExcludedPage) 
-	{//在过滤url之外
+	//if (isExcludedPage) 
+	//{//在过滤url之外
 		
-		chain.doFilter(request, response);     
-	} 
-	else{
+		//chain.doFilter(request, response);     
+	//} 
+	//else{
 		if ((session.getAttribute("currentUser")!=null)  )
 		{
+
 			chain.doFilter(request,response);
 		}
 		else 
-			{
+		{
+
 			httpresponse.sendRedirect(httprequest.getContextPath()+"/login.jsp");
-			}
 		}
-	}
+		}
+	//}
 	public void destroy(){
 		/* 在 Filter 实例被 Web 容器从服务移除之前调用 */
 	}

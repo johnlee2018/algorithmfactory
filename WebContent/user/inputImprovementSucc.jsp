@@ -16,7 +16,7 @@
     <form action="GoImprovementServlet" method="post"> 
 		<input name="submit" type="submit" value="查看所有需求" />
 	</form>
-	<form action="LoginServlet" method="post"> 
+	<form action="/algorithmfactory/LoginServlet" method="post"> 
 		<input name="submit" type="submit" value="返回首页" />
 	</form> 
 	 

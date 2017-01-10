@@ -15,7 +15,7 @@ import com.ljc.service.impl.SortServiceImpl;
 /**
  * Servlet implementation class QuickSortServlet
  */
-@WebServlet("/QuickSortServlet")
+@WebServlet("/Algorithm/QuickSortServlet")
 public class QuickSortServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

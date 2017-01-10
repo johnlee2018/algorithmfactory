@@ -40,7 +40,7 @@
 		<br />
 		<input name="submit" type="submit" value="improvement" />
 	</form> 
-	<form action="LoginServlet" method="post" > 
+	<form action="/algorithmfactory/LoginServlet" method="post" > 
 
 		<input name="submit" type="submit" value="回首页" />
 	</form> 

@@ -15,7 +15,7 @@ import org.springframework.cache.ehcache.EhCacheCache;
 /**
  * Servlet implementation class BubbleSortServlet
  */
-@WebServlet("/SortServlet")
+@WebServlet("/Algorithm/SortServlet")
 public class SortServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

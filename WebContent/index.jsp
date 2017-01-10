@@ -9,11 +9,11 @@
 	<br />
 	欢迎 欢迎 热烈欢迎..a
 	<br />
-	<a href="HiServlet">say hi</a>
+	<a href="Algorithm/HiServlet">say hi</a>
 	<br />
-	<a href="SortServlet">排序</a>
+	<a href="Algorithm/SortServlet">排序</a>
 	<br />
-	<a href="GoImprovementServlet">改善需求意见</a>
+	<a href="Algorithm/GoImprovementServlet">改善需求意见</a>
 	<br />
 	<a href="LogOutServlet">注销账户</a>
 	

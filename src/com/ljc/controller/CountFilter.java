@@ -19,7 +19,7 @@ public class CountFilter implements Filter  {
 		// 获取初始化参数
 		String site = config.getInitParameter("Site"); 
 		// 输出初始化参数
-		System.out.println("网站名称: " + site);
+		//System.out.println("网站名称: " + site);
 		//使用计数器
 		ServletContext sc=config.getServletContext();
 		sc.setAttribute("counter",0);
@@ -52,7 +52,7 @@ public class CountFilter implements Filter  {
 		
 		
 		//System.out.println("站点网址：http://www.weijifen.com1");
-		System.out.println(count);
+		//System.out.println(count);
 		//System.out.println("站点网址：http://www.weijifen.com2");
 		// 把请求传回过滤链
 		chain.doFilter(request,response);

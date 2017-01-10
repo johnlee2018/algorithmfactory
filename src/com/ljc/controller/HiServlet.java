@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class HiServlet
  */
-@WebServlet("/HiServlet")
+@WebServlet("/Algorithm/HiServlet")
 public class HiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -29,7 +29,7 @@ public class HiServlet extends HttpServlet {
 	 */
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("hi.jsp");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/hi.jsp");
 		request.setAttribute("name", "master!");
 		requestDispatcher.forward(request, response);
 

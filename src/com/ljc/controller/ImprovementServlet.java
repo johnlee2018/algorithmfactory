@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ImprovmentServelt
  */
-@WebServlet("/ImprovementServlet")
+@WebServlet("/Algorithm/ImprovementServlet")
 public class ImprovementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

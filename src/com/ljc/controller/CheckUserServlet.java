@@ -15,7 +15,7 @@ import com.ljc.service.impl.UserServiceImpl;
 /**
  * Servlet implementation class CheckUserServlet
  */
-@WebServlet("/CheckUserServlet")
+@WebServlet("/Algorithm/CheckUserServlet")
 public class CheckUserServlet extends HttpServlet {
 	private UserService userService = new UserServiceImpl();
 

@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GoImprovmentServlet
  */
-@WebServlet("/GoImprovementServlet")
+@WebServlet("/Algorithm/GoImprovementServlet")
 public class GoImprovementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -69,8 +69,8 @@ public class GoImprovementServlet extends HttpServlet {
             String stringTxt = null;
             while((lineTxt = bufferedReader.readLine()) != null)
             {
-            	System.out.println("^^^^^^^^^");
-                System.out.println(lineTxt);
+            	//System.out.println("^^^^^^^^^");
+                //System.out.println(lineTxt);
                 stringTxt+=lineTxt+"<br>";
             }
             read.close();

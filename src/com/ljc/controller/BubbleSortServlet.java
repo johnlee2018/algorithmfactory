@@ -15,7 +15,7 @@ import com.ljc.service.impl.SortServiceImpl;
 /**
  * Servlet implementation class DoBubbleSortServlet
  */
-@WebServlet("/BubbleSortServlet")
+@WebServlet("/Algorithm/BubbleSortServlet")
 public class BubbleSortServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

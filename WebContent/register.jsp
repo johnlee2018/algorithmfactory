@@ -17,7 +17,7 @@
 			var successFlag=0;
 			$.ajax({
 				type : "POST",
-				url : 'CheckUserServlet',
+				url : 'Algorithm/CheckUserServlet',
 				async : false, //同步方法，如果用异步的话，flag永远为1  
 				dataType : "json",
 				data : {
