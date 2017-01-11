@@ -44,9 +44,9 @@ public class LoginFilter implements Filter  {
 		//System.out.println(request_uri);
 		//System.out.println(ctx_path);
 		//System.out.println(httprequest.getServletPath());
-		//System.out.println(session.getAttribute("888888888"));
+		System.out.println("888888888");
 		//System.out.println(request_uri.substring(ctx_path.length()));
-		//System.out.println(session.getAttribute("currentUser"));
+		System.out.println(session.getAttribute("currentUser"));
 		
 		//boolean isExcludedPage = false;
 //		if (excludedPageArray != null)
