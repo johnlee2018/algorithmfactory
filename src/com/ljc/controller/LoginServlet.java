@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 		String oripassword = request.getParameter("password");
 		String md5password =userName+oripassword;
 		String password =MD5Util.MD5Encode(md5password);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.jsp");
+		//RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.jsp");
 		// 验证传递过来的参数是否正确，否则返回到登陆页面。
 		System.out.println("/LoginServlet");
 		HttpSession session=request.getSession();
@@ -43,9 +43,10 @@ public class LoginServlet extends HttpServlet {
 		if (session.getAttribute("currentUser")!=null)
 		{
 			
-			request.setAttribute("userName", session.getAttribute("currentUser"));
+			//request.setAttribute("userName", session.getAttribute("currentUser"));
 
-			requestDispatcher = request.getRequestDispatcher("/index.jsp");
+			//requestDispatcher = request.getRequestDispatcher("/index.jsp");
+			response.sendRedirect("index.jsp");
 		}
 		else
 		{
@@ -53,26 +54,31 @@ public class LoginServlet extends HttpServlet {
 				// 登陆
 				int result = userService.login(userName, password);
 				// 成功登陆
+				
 				if (result == 0) {
 					// 指定要返回的页面为succ.jsp
 					
-					requestDispatcher = request.getRequestDispatcher("/index.jsp");
+					//requestDispatcher = request.getRequestDispatcher("/index.jsp");
 					// 将参数返回给页面
-					request.setAttribute("userName", userName);
-					request.setAttribute("password", oripassword);
+					//request.setAttribute("userName", userName);
+					//request.setAttribute("password", oripassword);
 					HttpSession httpSession = request.getSession();
 					// 将用户名放入session
 					httpSession.setAttribute("currentUser", userName);
+					response.sendRedirect("index.jsp");
 				} else {
 					// 指定要返回的页面为login.jsp
-					// 将参数返回给页面
-					
-					request.setAttribute("userName", userName);
-					request.setAttribute("password", oripassword);
+					response.sendRedirect("login.jsp");
 				}
 			}
+			else{
+				
+				response.sendRedirect("login.jsp");
+	
+			}
+
 		}
-		requestDispatcher.forward(request, response);
+		//requestDispatcher.forward(request, response);
 	}
 
 	/**

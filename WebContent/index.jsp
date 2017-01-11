@@ -1,9 +1,10 @@
+
 <%@page language="Java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <html>
 <body>
-
-	<h2>${userName} 您，已登陆</h2>
-	
+	<h2><%=session.getAttribute("currentUser") %> 您，已登陆</h2>
 	
 	<br />
 	<br />
