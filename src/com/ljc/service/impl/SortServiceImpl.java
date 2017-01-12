@@ -51,6 +51,42 @@ public class SortServiceImpl implements SortService{
 		return this.nums;
 	}
 	
+	@Override
+	public String insertionSort(String nums) {
+		// TODO Auto-generated method stub
+		this.nums=nums;
+		if (nums != null)
+		{
+			getIntArry();
+		}
+		int Sortnumarr[]=new int[len];
+		int i = 0;
+		int j=0;
+		Sortnumarr[i]=numarr[i];
+		for (i=1;i<len-1;i++)
+		{
+			for (j=0;j<i;j++)
+			{
+				if (Sortnumarr[j]>numarr[i])
+				{
+					Sortnumarr[j+1]=Sortnumarr[j];
+					Sortnumarr[j]=numarr[i];
+				}
+				else
+				{
+					Sortnumarr[j+1]=numarr[i];
+				}
+			}
+		}
+		this.numarr=Sortnumarr;
+		integNums();
+		return this.nums;
+	}
+
+	
+	
+	
+	
 	private void getIntArry() {
 		// TODO Auto-generated method stub
 		
@@ -126,4 +162,5 @@ public class SortServiceImpl implements SortService{
 			quickSortFun(middle+1,high );
 		}
 	}
+
 }

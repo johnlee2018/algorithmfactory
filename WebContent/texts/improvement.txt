@@ -1,10 +1,8 @@
 Wed Jan 04 22:10:31 CST 2017 :: Need improve : 增加每一步验证是否登录
 Fri Jan 06 11:01:07 CST 2017 :: Need improve : 完成每一步验证用户是否登录
 Fri Jan 06 14:49:06 CST 2017 :: Need improve : 问题描述 ：没次登录之后，再次返回登录界面 依然出现登录密码
-
 Tue Jan 10 16:54:58 CST 2017 :: Need improve : 修复问题：每一步是否登录验证，总结如下：
-Tue Jan 10 17:51:45 CST 2017 :: Need improve :     1.方案有两种，第一种web.xml全部过滤，会出现重定向过多问题，解决方式，在web.xml中加入初始化参数，在servlet中加入判断访问地址不想被过滤地址，但是实验之后，没有成功
+Tue Jan 10 17:51:45 CST 2017 :: Need improve : 方案有两种，第一种web.xml全部过滤，会出现重定向过多问题，解决方式，在web.xml中加入初始化参数，在servlet中加入判断访问地址不想被过滤地址，但是实验之后，没有成功
 Tue Jan 10 17:54:06 CST 2017 :: Need improve : 第二种解决方案，在web.xml过滤器配置多加一级目录，相应的servlet也要加这一级目录，而不想被过滤的文件不加这一级目录，从而解决问题
-Tue Jan 10 17:57:07 CST 2017 :: Need improve : 新增需求描述：控制登录时间，超过登录时间无操作，自动登出
-Wed Jan 11 22:20:48 CST 2017 :: Need improve : 
+Tue Jan 10 17:57:07 CST 2017 :: Need improve : 新增需求描述：控制登录时间 ，超过登录时间无操作，自动登出
 Wed Jan 11 22:37:34 CST 2017 :: Need improve : 完成超时自动登出测试

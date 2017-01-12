@@ -51,6 +51,12 @@
 		<br />
 		<input name="submit" type="submit" value="Quick" />
 	</form> 
+    <form action="InsertionSortServlet" method="post" id='sortform'> 
+		numstr:<input type="text" id="numstr" name="numstr" size="20"
+		value=${numstr}></input> <a> fill the nums by comma separated </a>
+		<br />
+		<input name="submit" type="submit" value="Insertion" />
+	</form> 
 
 	<form action="/algorithmfactory/LoginServlet" method="post" > 
 

@@ -8,7 +8,7 @@ public interface SortService{
 	
 	/**
 	 * @author li jianchun
-	 * @param numarr
+	 * @param nums
 	 * @return
 	 * 
 	 */
@@ -16,10 +16,17 @@ public interface SortService{
 	
 	/**
 	 * @author li jianchun
-	 * @param numarr
+	 * @param nums
 	 * @return
 	 * 
 	 */
 	public String quickSort(String nums);
 	
+	/**
+	 * @author li jianchun
+	 * @param nums
+	 * @return
+	 * 
+	 */
+	public String insertionSort(String nums); 
 }

@@ -13,19 +13,25 @@ import com.ljc.service.SortService;
 import com.ljc.service.impl.SortServiceImpl;
 
 /**
- * Servlet implementation class DoBubbleSortServlet
+ * Servlet implementation class InsertionSortServlet
  */
-@WebServlet("/Algorithm/BubbleSortServlet")
-public class BubbleSortServlet extends HttpServlet {
+@WebServlet("/Algorithm/InsertionSortServlet")
+public class InsertionSortServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public InsertionSortServlet() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		SortService sortService=new SortServiceImpl();
 		
 		String nums=request.getParameter("numstr");
@@ -33,10 +39,11 @@ public class BubbleSortServlet extends HttpServlet {
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
 		request.setAttribute("numstr",numstr);
-		request.setAttribute("algorithm","BubbleSort");
+		request.setAttribute("algorithm","InsertionSort");
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/algorithm/display.jsp");
 		requestDispatcher.forward(request, response);
 
+	
 	}
 
 	/**
@@ -46,6 +53,5 @@ public class BubbleSortServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 
 }
