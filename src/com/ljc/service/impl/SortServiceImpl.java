@@ -1,7 +1,7 @@
 package com.ljc.service.impl;
 
 import com.ljc.service.SortService;
-import com.sun.org.apache.bcel.internal.generic.SWAP;
+
 
 public class SortServiceImpl implements SortService{
 
@@ -11,107 +11,121 @@ public class SortServiceImpl implements SortService{
 	@Override
 	public String bubbleSort(String nums) 
 	{
-		
-		this.nums=nums;
+		int[] numarr = null;
+		int len=0;
 		if (nums != null)
 		{
-			getIntArry();
+			numarr=	getIntArry(nums);
+			len=numarr.length;
+			for (int i=0; i<len;i++)
+			{
+				for (int j=i+1;j<len;j++)
+				{
+					if (numarr[j]<numarr[i])
+					{
+						numarr=swap(numarr,i,j);
+					}
+							
+				}
+			}
+
 		}
 			
-		for (int i=0; i<len;i++)
-		{
-			for (int j=i+1;j<len;j++)
-			{
-				if (numarr[j]<numarr[i])
-				{
-					swap(i,j);
-				}
-						
-			}
-		}
 		
-		integNums();
-		return this.nums;
+		nums=integNums(numarr);
+		return nums;
 	}
 
 	@Override
 	public String quickSort(String nums) {
 		// TODO Auto-generated method stub
+		int[] numarr = null;
+		int len=0;
+		int low = 0 ;
+		int high = 0;
+		numarr=	getIntArry(nums);
+		len=numarr.length;
 		
-		this.nums=nums;
 		if (nums != null)
 		{
-			getIntArry();
+			numarr=	getIntArry(nums);
+			len=numarr.length;
+			low = 0;
+			high=numarr.length-1;
+
 		}
-		int low = 0;
-		int high=numarr.length-1;
+		this.numarr=numarr;
 		quickSortFun(low,high);
-		integNums();
 		
-		return this.nums;
+		nums=integNums(this.numarr);
+		return nums;
 	}
 	
 	@Override
 	public String insertionSort(String nums) {
 		// TODO Auto-generated method stub
+		int[] numarr = null;
+		int len=0;
+
 		this.nums=nums;
 		if (nums != null)
 		{
-			getIntArry();
-		}
-		int Sortnumarr[]=new int[len];
-		int i = 0;
-		int j=0;
-		Sortnumarr[i]=numarr[i];
-		for (i=1;i<len-1;i++)
-		{
-			for (j=0;j<i;j++)
+			int Sortnumarr[]=new int[len];
+			int i = 0;
+			int j=0;
+
+			numarr=	getIntArry(nums);
+			len=numarr.length;
+			Sortnumarr[i]=numarr[i];
+			for (i=1;i<len-1;i++)
 			{
-				if (Sortnumarr[j]>numarr[i])
+				for (j=0;j<i;j++)
 				{
-					Sortnumarr[j+1]=Sortnumarr[j];
-					Sortnumarr[j]=numarr[i];
-				}
-				else
-				{
-					Sortnumarr[j+1]=numarr[i];
+					if (Sortnumarr[j]>numarr[i])
+					{
+						Sortnumarr[j+1]=Sortnumarr[j];
+						Sortnumarr[j]=numarr[i];
+					}
+					else
+					{
+						Sortnumarr[j+1]=numarr[i];
+					}
 				}
 			}
+			numarr=Sortnumarr;
+			nums=integNums(numarr);
+			//return nums;
 		}
-		this.numarr=Sortnumarr;
-		integNums();
-		return this.nums;
+		return nums;
 	}
 
 	
 	
 	
 	
-	private void getIntArry() {
+	private int[] getIntArry(String nums) {
 		// TODO Auto-generated method stub
 		
 		String[] arr=nums.split(",");
-		len =arr.length;
-		numarr = new int[len];
-		
-
-
+		int len =arr.length;
+		int[] numarr = new int[len];
 		for (int i = 0; i < len; i++) 
 		{
 			numarr[i]=Integer.parseInt(arr[i]);
 		}
-		
+		return numarr;
 	}
 	
-	private void swap(int i, int j) {
+	private int[] swap(int[] numarr,int i, int j) {
 		int ex;
 		ex=numarr[j];
 		numarr[j]=numarr[i];
 		numarr[i]=ex;
+		return numarr;
 	}
 
 	
-	private void integNums() {
+	private String integNums(int [] numarr) {
 		// TODO Auto-generated method stub
 		String nums="";
 	    for(int i=0;i<numarr.length;i++)
@@ -124,7 +138,7 @@ public class SortServiceImpl implements SortService{
 		{
 			nums += String.valueOf(i)+",";
 		}
-		this.nums=nums;
+		return nums;
 	}
 
 	private int getMiddle(int[] numarr,int low,int high){
