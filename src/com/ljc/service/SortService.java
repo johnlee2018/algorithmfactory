@@ -29,4 +29,12 @@ public interface SortService{
 	 * 
 	 */
 	public String insertionSort(String nums); 
+	
+	/**
+	 * @author li jianchun
+	 * @param nums
+	 * @return
+	 * 
+	 */
+	public String shellSort(String nums); 
 }

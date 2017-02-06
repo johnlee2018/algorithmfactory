@@ -40,16 +40,12 @@ public class SortServiceImpl implements SortService{
 	public String quickSort(String nums) {
 		// TODO Auto-generated method stub
 		int[] numarr = null;
-		int len=0;
 		int low = 0 ;
 		int high = 0;
 		numarr=	getIntArry(nums);
-		len=numarr.length;
-		
 		if (nums != null)
 		{
 			numarr=	getIntArry(nums);
-			len=numarr.length;
 			low = 0;
 			high=numarr.length-1;
 
@@ -99,9 +95,41 @@ public class SortServiceImpl implements SortService{
 		return nums;
 	}
 
+	@Override
+	public String shellSort(String nums) {
+		// TODO Auto-generated method stub
+		int[] numarr = null;
+		int len=0;
+
+		this.nums=nums;
+		if (nums != null)
+		{
+			
+	        int h = 1;  
+			numarr=	getIntArry(nums);
+			h=numarr.length / 2;
+	        while (h > 0) {
+	            for (int i = h; i < numarr.length; i += h) {  
+	                if (numarr[i] < numarr[i - h]) {  
+	                    int tmp = numarr[i];  
+	                    int j = i - h;  
+	                    while (j >= 0 && numarr[j] > tmp) {  
+	                    	numarr[j + h] = numarr[j];  
+	                        j -= h;  
+	                    }  
+	                    numarr[j + h] = tmp;  
+	                }  
+	            }  
+	        
+	        	h=h / 2;
+	        }
+			
+		}
+		nums=integNums(numarr);
+		return nums;
 	
-	
-	
+		//return null;
+	}
 	
 	private int[] getIntArry(String nums) {
 		// TODO Auto-generated method stub
@@ -177,4 +205,6 @@ public class SortServiceImpl implements SortService{
 		}
 	}
 
+
+	
 }
