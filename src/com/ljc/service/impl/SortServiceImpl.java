@@ -156,12 +156,6 @@ public class SortServiceImpl implements SortService{
 	private String integNums(int [] numarr) {
 		// TODO Auto-generated method stub
 		String nums="";
-	    for(int i=0;i<numarr.length;i++)
-	    {
-	        System.out.println("%%integNums%%");
-	        System.out.println(numarr[i]);  
-	    }
-		
 		for (int i : numarr) 
 		{
 			nums += String.valueOf(i)+",";
@@ -187,12 +181,6 @@ public class SortServiceImpl implements SortService{
 		}
 		numarr[high]=key;
 		this.numarr=numarr;
-	    for(int i=0;i<numarr.length;i++)
-	    {
-	        System.out.println("%%%%");
-	        System.out.println(numarr[i]);  
-	    }
-		
 		return low;
 	}
 
