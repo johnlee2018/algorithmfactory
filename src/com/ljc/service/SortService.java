@@ -37,4 +37,12 @@ public interface SortService{
 	 * 
 	 */
 	public String shellSort(String nums); 
+	
+	/**
+	 * @author li jianchun
+	 * @param nums
+	 * @return
+	 * 
+	 */
+	public String simpleSelectionSort(String nums); 
 }

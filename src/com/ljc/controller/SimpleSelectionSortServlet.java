@@ -1,41 +1,37 @@
 package com.ljc.controller;
 
 import java.io.IOException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import com.ljc.service.SortService;
+import com.ljc.service.impl.SortServiceImpl;
 
 /**
- * Servlet implementation class LogOutServlet
+ * Servlet implementation class DoBubbleSortServlet
  */
-@WebServlet("/LogOutServlet")
-public class LogOutServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LogOutServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
+@WebServlet("/Algorithm/SimpleSelectionSortServlet")
+public class SimpleSelectionSortServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		HttpSession httpSession = request.getSession();
-		//httpSession.removeAttribute("currentUser");
-		httpSession.invalidate();
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("login.jsp");
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		SortService sortService=new SortServiceImpl();
+		
+		String nums=request.getParameter("numstr");
+		String numstr=sortService.bubbleSort(nums);
+		response.setHeader("Cache-Control", "no-cache");
+		response.setHeader("Pragma", "no-cache");
+		request.setAttribute("numstr",numstr);
+		request.setAttribute("algorithm","SimpleSelectionSort");
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/algorithm/display.jsp");
 		requestDispatcher.forward(request, response);
-		System.out.print(" logged out");
+
 	}
 
 	/**
@@ -45,5 +41,6 @@ public class LogOutServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 
 }
