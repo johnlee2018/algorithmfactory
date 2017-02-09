@@ -90,7 +90,7 @@ public class SortServiceImpl implements SortService{
 			}
 			numarr=Sortnumarr;
 			nums=integNums(numarr);
-			//return nums;
+			
 		}
 		return nums;
 	}
@@ -130,6 +130,36 @@ public class SortServiceImpl implements SortService{
 	
 		//return null;
 	}
+
+	@Override
+	public String simpleSelectionSort(String nums) {
+		// TODO Auto-generated method stub
+		int[] numarr = null;
+		int len=0;
+		if (nums != null)
+		{
+			numarr=	getIntArry(nums);
+			
+		}
+		for (int i=0;i<numarr.length-1;i++)
+		{
+			int lowIndex=i;
+			for(int j=i+1;j<numarr.length;j++)
+			{
+				if (numarr[j]>numarr[lowIndex])
+				{
+					lowIndex=j;
+				}
+				
+			}
+			
+			numarr=swap(numarr, i, lowIndex);
+		}
+		nums=integNums(numarr);
+		return nums;
+
+	}
+	
 	
 	private int[] getIntArry(String nums) {
 		// TODO Auto-generated method stub
@@ -137,11 +167,26 @@ public class SortServiceImpl implements SortService{
 		String[] arr=nums.split(",");
 		int len =arr.length;
 		int[] numarr = new int[len];
-		for (int i = 0; i < len; i++) 
+		try
 		{
-			numarr[i]=Integer.parseInt(arr[i]);
+			for (int i = 0; i < len; i++) 
+			{
+				numarr[i]=Integer.parseInt(arr[i]);
+			}
+			
+			return numarr;
+			
 		}
-		return numarr;
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		finally
+		{
+			System.out.println(" the result is 0,0,0  ,which is wrong ! ");
+		}
+		
+		return new int[]{0,0,0};
 	}
 	
 	private int[] swap(int[] numarr,int i, int j) {
@@ -161,6 +206,7 @@ public class SortServiceImpl implements SortService{
 			nums += String.valueOf(i)+",";
 		}
 		return nums;
+		
 	}
 
 	private int getMiddle(int[] numarr,int low,int high){
@@ -192,6 +238,7 @@ public class SortServiceImpl implements SortService{
 			quickSortFun(middle+1,high );
 		}
 	}
+
 
 
 	
