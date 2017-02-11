@@ -160,7 +160,62 @@ public class SortServiceImpl implements SortService{
 
 	}
 	
+	@Override
+	public String heapSort(String nums) {
+		// TODO Auto-generated method stub
+		int[] numarr = null;
+		int len=0;
+		if (nums != null)
+		{
+			numarr=	getIntArry(nums);
+			
+		}
+		len=numarr.length;
+		for (int i=(len-2)/2;i>=0;i--)
+		{
+			numarr=siftAdjust(numarr,i,len-1);
+		}
+		for(int i=len-1;i>0;i--)
+		{
+			numarr=swap(numarr, 0, i);
+			numarr=siftAdjust(numarr, 0, i--);
+		}
+		nums=integNums(numarr);
+		return nums;
+
+	}  
+
 	
+	private int[] siftAdjust(int[] numarr, int low, int high) {
+		// TODO Auto-generated method stub
+		int len=numarr.length;
+		for(int s=low,i=2*low+1;i<=high;i=2*i+1)
+		{
+//			if (len==i+1)//the right child exists;
+//			{
+//				if(numarr[s]<numarr[i])
+//				{
+//					numarr=swap(numarr, low, i);
+//				}
+//				
+//			}
+//			else
+//			{
+				if (i<high && numarr[i]<numarr[i+1])//短路与保证了右孩子存在性
+				{
+					i++;
+				}
+				if(numarr[s]<numarr[i])
+				{
+					numarr=swap(numarr, low, i);
+				}
+				
+			//}
+			s=i;
+		}
+		return numarr;
+	}
+
 	private int[] getIntArry(String nums) {
 		// TODO Auto-generated method stub
 		
@@ -238,6 +293,13 @@ public class SortServiceImpl implements SortService{
 			quickSortFun(middle+1,high );
 		}
 	}
+
+    private static void print(int[] data) {  
+        for (int i = 0; i < data.length; i++) {  
+            System.out.print(data[i] + "\t");  
+        }  
+        System.out.println();  
+    }
 
 
 

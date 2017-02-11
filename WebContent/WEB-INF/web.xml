@@ -35,4 +35,14 @@
   <session-config>
     <session-timeout>5</session-timeout>
   </session-config>
+  <servlet>
+    <description></description>
+    <display-name>BubbleSortServlet</display-name>
+    <servlet-name>BubbleSortServlet</servlet-name>
+    <servlet-class>com.ljc.controller.BubbleSortServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BubbleSortServlet</servlet-name>
+    <url-pattern>/BubbleSortServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

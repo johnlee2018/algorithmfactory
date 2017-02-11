@@ -45,4 +45,13 @@ public interface SortService{
 	 * 
 	 */
 	public String simpleSelectionSort(String nums); 
+	
+	
+	/**
+	 * @author li jianchun
+	 * @param nums
+	 * @return
+	 * 
+	 */
+	public String heapSort(String nums); 
 }
