@@ -54,4 +54,12 @@ public interface SortService{
 	 * 
 	 */
 	public String heapSort(String nums); 
+	
+	/**
+	 * @author li jianchun
+	 * @param nums
+	 * @return
+	 * 
+	 */
+	public String mergeSort(String nums);
 }

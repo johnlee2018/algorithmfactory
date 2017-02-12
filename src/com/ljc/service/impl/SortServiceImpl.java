@@ -6,8 +6,6 @@ import com.ljc.service.SortService;
 public class SortServiceImpl implements SortService{
 
 	private int numarr[];
-	private String nums = "";
-	private int len;
 	@Override
 	public String bubbleSort(String nums) 
 	{
@@ -63,7 +61,6 @@ public class SortServiceImpl implements SortService{
 		int[] numarr = null;
 		int len=0;
 
-		this.nums=nums;
 		if (nums != null)
 		{
 			int Sortnumarr[]=new int[len];
@@ -99,9 +96,6 @@ public class SortServiceImpl implements SortService{
 	public String shellSort(String nums) {
 		// TODO Auto-generated method stub
 		int[] numarr = null;
-		int len=0;
-
-		this.nums=nums;
 		if (nums != null)
 		{
 			
@@ -135,7 +129,6 @@ public class SortServiceImpl implements SortService{
 	public String simpleSelectionSort(String nums) {
 		// TODO Auto-generated method stub
 		int[] numarr = null;
-		int len=0;
 		if (nums != null)
 		{
 			numarr=	getIntArry(nums);
@@ -185,10 +178,65 @@ public class SortServiceImpl implements SortService{
 
 	}  
 
-	
-	private int[] siftAdjust(int[] numarr, int low, int high) {
+	@Override
+	public String mergeSort(String nums) {
 		// TODO Auto-generated method stub
-		int len=numarr.length;
+		int[] numarr = null;
+		int[] tempNumarr=null;
+		int len;
+		if (nums != null)
+		{
+			numarr=	getIntArry(nums);
+		}
+		len=numarr.length;
+		numarr=mergeSortHelp(tempNumarr,numarr,0,len-1);
+		nums=integNums(numarr);
+		return nums;
+	}
+	
+	private int[] mergeSortHelp(int[] tempNumarr, int[] numarr, int low, int high) {
+		// TODO Auto-generated method stub
+		if (low>high)
+		{
+			return numarr;
+		}
+		
+		int mid=(low+high)/2;
+		tempNumarr=mergeSortHelp(tempNumarr, numarr, low, mid);
+		tempNumarr=mergeSortHelp(tempNumarr, numarr, mid+1, high);
+		tempNumarr=merge(tempNumarr,numarr,low,mid,high);
+		
+		return tempNumarr;
+	}
+
+	private int[] merge(int[] tempNumarr, int[] numarr, int low, int mid, int high) {
+		// TODO Auto-generated method stub
+		int i,j,k;
+		for(i=low,j=mid+1,k=low;i<=mid && j<=mid+1;k++)
+		{
+			if (numarr[i]<numarr[j])
+			{
+				tempNumarr[k]=numarr[i];
+				i++;
+			}
+			else
+			{
+				tempNumarr[k]=numarr[j];
+				j++;				
+			}
+		}
+		for (;i<=mid;i++,k++)//归并numarr[low,mid]中剩余元素，和下一个for只能执行其中一个
+		{
+			tempNumarr[k]=numarr[i];
+		}
+		for (;j<=mid+1;j++,k++)//归并numarr[mid+1,high]中剩余元素，和上一个for只能执行其中一个
+		{
+			tempNumarr[k]=numarr[j];
+		}
+		return tempNumarr;
+	}
+
+	private int[] siftAdjust(int[] numarr, int low, int high) {
 		for(int s=low,i=2*low+1;i<=high;i=2*i+1)
 		{
 //			if (len==i+1)//the right child exists;
@@ -300,8 +348,5 @@ public class SortServiceImpl implements SortService{
         }  
         System.out.println();  
     }
-
-
-
 	
 }
