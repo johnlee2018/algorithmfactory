@@ -62,4 +62,10 @@ public interface SortService{
 	 * 
 	 */
 	public String mergeSort(String nums);
+	/**
+	 * @author li jianchun
+	 * @param nums
+	 * @return
+	 */
+	public String radixSort(String nums);
 }

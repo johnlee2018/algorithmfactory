@@ -34,13 +34,10 @@ public class QuickSortServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		SortService sortService=new SortServiceImpl();
-		
 		String nums=request.getParameter("numstr");
-		
 		String numstr=sortService.quickSort(nums);
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
-
 		request.setAttribute("numstr",numstr);
 		request.setAttribute("algorithm","QuickSort");
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/algorithm/display.jsp");

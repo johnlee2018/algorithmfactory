@@ -1,15 +1,18 @@
 package com.ljc.service.impl;
 
+import java.util.Arrays;
+
 import com.ljc.service.SortService;
 
 
 public class SortServiceImpl implements SortService{
 
-	private int numarr[];
+	private Integer numarr[];
 	@Override
 	public String bubbleSort(String nums) 
 	{
-		int[] numarr = null;
+		//System.out.//println(" %%%bubble%%%  ");
+		Integer[] numarr = null;
 		int len=0;
 		if (nums != null)
 		{
@@ -29,15 +32,26 @@ public class SortServiceImpl implements SortService{
 
 		}
 			
+		//print(numarr);
+		//String[] numss={"a","vf","cd"};
 		
+		////print(numss);
 		nums=integNums(numarr);
+		
+		//int[] numint1={3,2,3};
+		//Integer[] numint2={3,2,3};
+		////print(numint2);
+		////print(numint1);
+
 		return nums;
 	}
+
 
 	@Override
 	public String quickSort(String nums) {
 		// TODO Auto-generated method stub
-		int[] numarr = null;
+		//System.out.//println(" %%%quick%%%  ");
+		Integer[] numarr = null;
 		int low = 0 ;
 		int high = 0;
 		numarr=	getIntArry(nums);
@@ -58,34 +72,28 @@ public class SortServiceImpl implements SortService{
 	@Override
 	public String insertionSort(String nums) {
 		// TODO Auto-generated method stub
-		int[] numarr = null;
+		//System.out.//println(" %%%insert%%%  ");
+		Integer[] numarr = null;
 		int len=0;
 
 		if (nums != null)
 		{
-			int Sortnumarr[]=new int[len];
+			
 			int i = 0;
 			int j=0;
 
 			numarr=	getIntArry(nums);
 			len=numarr.length;
-			Sortnumarr[i]=numarr[i];
-			for (i=1;i<len-1;i++)
-			{
-				for (j=0;j<i;j++)
+			for (i=1;i<len;i++)
+				
 				{
-					if (Sortnumarr[j]>numarr[i])
+					int tmp = numarr[i];
+					for(j=i-1;j>=0 && tmp<numarr[j];j--)
 					{
-						Sortnumarr[j+1]=Sortnumarr[j];
-						Sortnumarr[j]=numarr[i];
+						numarr[j+1]=numarr[j];
 					}
-					else
-					{
-						Sortnumarr[j+1]=numarr[i];
-					}
+					numarr[j+1]=tmp;
 				}
-			}
-			numarr=Sortnumarr;
 			nums=integNums(numarr);
 			
 		}
@@ -95,7 +103,8 @@ public class SortServiceImpl implements SortService{
 	@Override
 	public String shellSort(String nums) {
 		// TODO Auto-generated method stub
-		int[] numarr = null;
+		//System.out.//println(" %%%shell%%%  ");
+		Integer[] numarr = null;
 		if (nums != null)
 		{
 			
@@ -128,7 +137,8 @@ public class SortServiceImpl implements SortService{
 	@Override
 	public String simpleSelectionSort(String nums) {
 		// TODO Auto-generated method stub
-		int[] numarr = null;
+		//System.out.//println(" %%%simpleSelect%%%  ");
+		Integer[] numarr = null;
 		if (nums != null)
 		{
 			numarr=	getIntArry(nums);
@@ -139,7 +149,7 @@ public class SortServiceImpl implements SortService{
 			int lowIndex=i;
 			for(int j=i+1;j<numarr.length;j++)
 			{
-				if (numarr[j]>numarr[lowIndex])
+				if (numarr[j]<numarr[lowIndex])
 				{
 					lowIndex=j;
 				}
@@ -156,23 +166,28 @@ public class SortServiceImpl implements SortService{
 	@Override
 	public String heapSort(String nums) {
 		// TODO Auto-generated method stub
-		int[] numarr = null;
+		//System.out.//println(" %%%heap%%%  ");
+		Integer[] numarr = null;
+		
 		int len=0;
 		if (nums != null)
 		{
 			numarr=	getIntArry(nums);
 			
 		}
+		////print(numarr);
 		len=numarr.length;
-		for (int i=(len-2)/2;i>=0;i--)
+		for (int i=(len-2)/2;i>=0;--i)
 		{
 			numarr=siftAdjust(numarr,i,len-1);
+			
 		}
-		for(int i=len-1;i>0;i--)
+		for(int i=len-1;i>0;--i)
 		{
 			numarr=swap(numarr, 0, i);
-			numarr=siftAdjust(numarr, 0, i--);
+			numarr=siftAdjust(numarr, 0, i-1);
 		}
+		
 		nums=integNums(numarr);
 		return nums;
 
@@ -181,41 +196,128 @@ public class SortServiceImpl implements SortService{
 	@Override
 	public String mergeSort(String nums) {
 		// TODO Auto-generated method stub
-		int[] numarr = null;
-		int[] tempNumarr=null;
+		//System.out.//println(" %%%merge%%%  ");
+		Integer[] numarr = null;
+		Integer[] tempNumarr=null;
 		int len;
 		if (nums != null)
 		{
 			numarr=	getIntArry(nums);
 		}
 		len=numarr.length;
+		tempNumarr=new Integer[len];
 		numarr=mergeSortHelp(tempNumarr,numarr,0,len-1);
 		nums=integNums(numarr);
 		return nums;
 	}
-	
-	private int[] mergeSortHelp(int[] tempNumarr, int[] numarr, int low, int high) {
+
+	@Override
+	public String radixSort(String nums) {
 		// TODO Auto-generated method stub
-		if (low>high)
+		//System.out.//println(" %%%radix%%%  ");
+		Integer[] numarr = null;
+		int key;
+		if (nums != null)
+		{
+			numarr=	getIntArry(nums);
+		}
+		key=getKey(numarr);
+		//System.out.//println("&&&&&&&+the value of key");
+		//System.out.//println(key);
+		numarr=radixSortHelp(numarr,10,key);
+		nums=integNums(numarr);
+		return nums;
+	}
+
+    public Integer[] radixSortHelp(Integer[] numarr, int radix, int d) 
+    {  
+        // 缓存数组  
+    	Integer[] tmp = new Integer[numarr.length];  
+        // buckets用于记录待排序元素的信息  
+        // buckets数组定义了max-min个桶  
+    	Integer[] buckets = new Integer[radix];  
+  
+        for (int i = 0, rate = 1; i < d; i++) {  
+  
+            // 重置count数组，开始统计下一个关键字  
+            Arrays.fill(buckets, 0);  
+            // 将data中的元素完全复制到tmp数组中  
+            //System.arraycopy(numarr, 0, tmp, 0, numarr.length);  
+  
+            // 计算每个待排序数据的子关键字  
+            for (int j = 0; j < numarr.length; j++) {  
+                int subKey = (tmp[j] / rate) % radix;  
+                buckets[subKey]++;  
+            }  
+  
+            for (int j = 1; j < radix; j++) {  
+                buckets[j] = buckets[j] + buckets[j - 1];  
+            }  
+  
+            // 按子关键字对指定的数据进行排序  
+            for (int m = numarr.length - 1; m >= 0; m--) {  
+                int subKey = (tmp[m] / rate) % radix;  
+                numarr[--buckets[subKey]] = tmp[m];  
+            }  
+            rate *= radix;  
+        }  
+        return numarr;
+    }  	
+	
+	private int getKey(Integer[] numarr) {
+		// TODO Auto-generated method stub
+		
+		int len=numarr.length;
+		int tmp = 0;
+		for (int i=0;i<len;i++)
+		{
+			String s=String.valueOf(numarr[i]);
+			if (tmp<s.length())
+			{
+				tmp=s.length();
+			}
+			/*
+			if (numarr[i]<Math.pow(10,key))
+			{
+				i++;
+			}
+			else
+			{
+				i++;
+				key++;
+				tmp=key;
+				continue;
+			}
+			*/
+		}
+		return tmp;
+	}
+
+
+	private Integer[] mergeSortHelp(Integer[] tempNumarr, Integer[] numarr, int low, int high) {
+		// TODO Auto-generated method stub
+		if (low>=high)
 		{
 			return numarr;
 		}
 		
 		int mid=(low+high)/2;
-		tempNumarr=mergeSortHelp(tempNumarr, numarr, low, mid);
-		tempNumarr=mergeSortHelp(tempNumarr, numarr, mid+1, high);
-		tempNumarr=merge(tempNumarr,numarr,low,mid,high);
+		numarr=mergeSortHelp(tempNumarr, numarr, low, mid);
+		numarr=mergeSortHelp(tempNumarr, numarr, mid+1, high);
+		numarr=merge(tempNumarr,numarr,low,mid,high);
 		
-		return tempNumarr;
+		return numarr;
 	}
 
-	private int[] merge(int[] tempNumarr, int[] numarr, int low, int mid, int high) {
+	private Integer[] merge(Integer[] tempNumarr, Integer[] numarr, int low, int mid, int high) {
 		// TODO Auto-generated method stub
 		int i,j,k;
-		for(i=low,j=mid+1,k=low;i<=mid && j<=mid+1;k++)
+		for(i=low,j=mid+1,k=low;i<=mid && j<=high;k++)
 		{
-			if (numarr[i]<numarr[j])
+			if (numarr[i]<=numarr[j])
 			{
+				//print(numarr);
+				//print(tempNumarr);
 				tempNumarr[k]=numarr[i];
 				i++;
 			}
@@ -229,14 +331,19 @@ public class SortServiceImpl implements SortService{
 		{
 			tempNumarr[k]=numarr[i];
 		}
-		for (;j<=mid+1;j++,k++)//归并numarr[mid+1,high]中剩余元素，和上一个for只能执行其中一个
+		for (;j<=high;j++,k++)//归并numarr[mid+1,high]中剩余元素，和上一个for只能执行其中一个
 		{
 			tempNumarr[k]=numarr[j];
 		}
-		return tempNumarr;
+		for(i=low;i<=high;i++)
+		{
+			numarr[i]=tempNumarr[i];
+		}
+		return numarr;
 	}
 
-	private int[] siftAdjust(int[] numarr, int low, int high) {
+		
+	private Integer[] siftAdjust(Integer[] numarr, int low, int high) {
 		for(int s=low,i=2*low+1;i<=high;i=2*i+1)
 		{
 //			if (len==i+1)//the right child exists;
@@ -253,10 +360,15 @@ public class SortServiceImpl implements SortService{
 				{
 					i++;
 				}
-				if(numarr[s]<numarr[i])
+				if(numarr[s]>=numarr[i])
 				{
-					numarr=swap(numarr, low, i);
+					break;
+					
 				}
+				numarr=swap(numarr, s, i);
+				s=i;
+				////System.out.//println("$$$$$$$$$");
+				////print(numarr);
 				
 			//}
 			s=i;
@@ -264,12 +376,12 @@ public class SortServiceImpl implements SortService{
 		return numarr;
 	}
 
-	private int[] getIntArry(String nums) {
+	private Integer[] getIntArry(String nums) {
 		// TODO Auto-generated method stub
 		
 		String[] arr=nums.split(",");
 		int len =arr.length;
-		int[] numarr = new int[len];
+		Integer[] numarr = new Integer[len];
 		try
 		{
 			for (int i = 0; i < len; i++) 
@@ -286,13 +398,12 @@ public class SortServiceImpl implements SortService{
 		}
 		finally
 		{
-			System.out.println(" the result is 0,0,0  ,which is wrong ! ");
+			System.out.println("  if the result is 0,0,0  ,the input is wrong ! ");
 		}
-		
-		return new int[]{0,0,0};
+		return new Integer[]{0,0,0};
 	}
 	
-	private int[] swap(int[] numarr,int i, int j) {
+	private Integer[] swap(Integer[] numarr,int i, int j) {
 		int ex;
 		ex=numarr[j];
 		numarr[j]=numarr[i];
@@ -301,7 +412,7 @@ public class SortServiceImpl implements SortService{
 	}
 
 	
-	private String integNums(int [] numarr) {
+	private String integNums(Integer [] numarr) {
 		// TODO Auto-generated method stub
 		String nums="";
 		for (int i : numarr) 
@@ -312,7 +423,7 @@ public class SortServiceImpl implements SortService{
 		
 	}
 
-	private int getMiddle(int[] numarr,int low,int high){
+	private int getMiddle(Integer[] numarr,int low,int high){
 		
 		int key =numarr[low];
 		while(low<high)
@@ -342,11 +453,15 @@ public class SortServiceImpl implements SortService{
 		}
 	}
 
-    private static void print(int[] data) {  
-        for (int i = 0; i < data.length; i++) {  
-            System.out.print(data[i] + "\t");  
-        }  
+    private < T > void print(T[] data) {  
+       
+        for ( T element : data )
+        {        
+            System.out.printf( "%s ", element );
+         }
         System.out.println();  
     }
+
+
 	
 }

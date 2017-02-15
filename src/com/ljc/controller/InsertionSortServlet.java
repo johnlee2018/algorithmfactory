@@ -35,7 +35,7 @@ public class InsertionSortServlet extends HttpServlet {
 		SortService sortService=new SortServiceImpl();
 		
 		String nums=request.getParameter("numstr");
-		String numstr=sortService.bubbleSort(nums);
+		String numstr=sortService.insertionSort(nums);
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
 		request.setAttribute("numstr",numstr);
