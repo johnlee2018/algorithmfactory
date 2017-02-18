@@ -11,12 +11,62 @@ import java.util.List;
 import com.ljc.dao.AlgorithmMDao;
 import com.ljc.pojo.Algorithm;
 import com.ljc.pojo.PagePojo;
-import com.ljc.pojo.User;
 import com.ljc.util.DBUtil;
 
 public class AlgorithmMDaoImpl implements AlgorithmMDao 
 	{
 
+	
+	@Override
+	public Algorithm getAlgorithmById(int id) {
+		Connection conn=null;
+		PreparedStatement psta=null;
+		ResultSet rs=null;
+		Algorithm algorithm=null;
+		String sql=null;
+		try 
+		{
+			conn=DBUtil.getConnection();
+			sql="select id,name,function from  where id=? ";
+			psta=conn.prepareStatement(sql);
+			psta.setLong(1,id );
+			rs=psta.executeQuery();
+			if (rs.next())
+				{
+				algorithm = handleRs(rs);
+				}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			try
+			{
+				if (rs!=null)
+				{
+					rs.close();
+				}
+				if(psta!=null)
+				{
+					psta.close();
+				}
+				if(conn!=null)
+				{
+					conn.close();
+				}
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+		}
+		// TODO Auto-generated method stub
+		return algorithm;
+	}
+	
 	@Override
 	public Algorithm getAlgorithmByAlgorithmName(String algorithmName) {
 		Connection conn=null;
@@ -131,9 +181,9 @@ public class AlgorithmMDaoImpl implements AlgorithmMDao
 			conn = DBUtil.getConnection();
 			String sql = null;
 			if (pagePojo.getPage() == 0) {
-				sql = "select id,username,pass from algorithm";
+				sql = "select id,name,function from algorithm";
 			} else {
-				sql = "select id,username,pass from algorithm limit ?,?";
+				sql = "select id,name,function from algorithm limit ?,?";
 			}
 
 			psta = conn.prepareStatement(sql);
@@ -169,11 +219,12 @@ public class AlgorithmMDaoImpl implements AlgorithmMDao
 	private Algorithm handleRs(ResultSet rs) {
 		Algorithm algorithm = new Algorithm();
 		try {
-			algorithm.setId(rs.getInt("id"));
+			//algorithm.setId(rs.getInt("id"));
 			algorithm.setName(rs.getString("name"));
 			algorithm.setFunction(rs.getString("function"));
 		} catch (SQLException e) {
 		}
 		return algorithm;
 	}
+
 	}

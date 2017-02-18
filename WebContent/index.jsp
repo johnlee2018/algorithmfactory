@@ -14,6 +14,8 @@
 	<br />
 	<a href="Algorithm/SortServlet">排序</a>
 	<br />
+	<a href="Algorithm/GetAlgorithmServlet?page=0&pageCount=1">算法</a>
+	<br />
 	<a href="Algorithm/GoImprovementServlet">改善需求意见</a>
 	<br />
 	<a href="LogOutServlet">注销账户</a>

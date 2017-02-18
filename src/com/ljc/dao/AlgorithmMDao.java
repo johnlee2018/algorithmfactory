@@ -12,11 +12,21 @@ import com.ljc.pojo.PagePojo;
 public interface AlgorithmMDao{ 
 	
 	/**
-	 * get one algorithm by algorthmName
+	 * get one algorithm by id
 	 * @author li jianchun
 	 * @param algorithmName
 	 * @return
 	 */
+	
+	public Algorithm getAlgorithmById(int id);
+	
+	/**
+	 * get one algorithm by algorthm
+	 * @author li jianchun
+	 * @param algoritm
+	 * @return
+	 */
+
 	public Algorithm getAlgorithmByAlgorithmName(String algorithmName);
 	
 	/**
