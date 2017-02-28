@@ -32,6 +32,10 @@
 			<br />
 			<input name="submit" type="submit" value="新增排序算法名称" />
 		
-</form> 
+	</form> 
+	<form action="/algorithmfactory/LoginServlet" method="post" > 
+		<input name="submit" type="submit" value="回首页" />
+	</form> 
+	
 </body>
 </html>

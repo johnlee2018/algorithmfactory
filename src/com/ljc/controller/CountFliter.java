@@ -13,8 +13,8 @@ import javax.servlet.annotation.WebServlet;
 /**
  * 
  */
-@WebServlet("/CountFilter")
-public class CountFilter implements Filter  {
+@WebServlet("/CountFliter")
+public class CountFliter implements Filter  {
 	public void  init(FilterConfig config) throws ServletException {
 		// 获取初始化参数
 		String site = config.getInitParameter("Site"); 

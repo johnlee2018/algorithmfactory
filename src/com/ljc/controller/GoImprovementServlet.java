@@ -32,8 +32,13 @@ public class GoImprovementServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//String encoding=request.getCharacterEncoding();
+		//System.out.println("^^^^^^^^^");
+		//System.out.println(encoding);
+		//String charset = "null";
+		//request.setCharacterEncoding(charset);
+		//System.out.println(request.getCharacterEncoding());
 		String path=request.getServletContext().getRealPath("");
-		
 		String[] pathString=path.split("\\\\");
 		String filePath=pathString[0]+"\\"+pathString[1];
 		filePath=filePath+"\\algorithmfactory\\WebContent\\texts\\improvement.txt";

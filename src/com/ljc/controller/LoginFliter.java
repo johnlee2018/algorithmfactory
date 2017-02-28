@@ -16,10 +16,10 @@ import javax.servlet.http.HttpSession;
 import com.mysql.jdbc.StringUtils;
 import com.sun.org.apache.xpath.internal.operations.And;
 
-@WebServlet("/LoginFilter")
-public class LoginFilter implements Filter  {
-	private String excludedPages;       
-	private String[] excludedPageArray; 
+@WebServlet("/LoginFliter")
+public class LoginFliter implements Filter  {
+	//private String excludedPages;       
+	//private String[] excludedPageArray; 
 	public void  init(FilterConfig fConfig) throws ServletException {
 		//excludedPages = fConfig.getInitParameter("excludedPages");
 		//System.out.println("+++++");

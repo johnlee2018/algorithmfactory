@@ -27,8 +27,10 @@ public class InputSortNameServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");//每个参数编码来改变参数的编码
-		String function = new String(request.getParameter("function").getBytes("iso-8859-1"), "utf-8");
+		String name = request.getParameter("name");////解决前端传过来的参数乱码 方案二：新增一个过滤器，每次自动修改编码
+		String function = request.getParameter("function");
+		//String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");//解决前端传过来的参数乱码 方案一：每个参数编码来改变参数的编码
+		//String function = new String(request.getParameter("function").getBytes("iso-8859-1"), "utf-8");
 		//String str = new String(request.getParameter("参数名").getBytes("iso-8859-1"), "utf-8");  
 		//System.out.println("传过来的参数");
 		//System.out.println(name);
