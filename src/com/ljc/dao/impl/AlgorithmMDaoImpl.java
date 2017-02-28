@@ -16,7 +16,6 @@ import com.ljc.util.DBUtil;
 public class AlgorithmMDaoImpl implements AlgorithmMDao 
 	{
 
-	
 	@Override
 	public Algorithm getAlgorithmById(int id) {
 		Connection conn=null;
@@ -216,6 +215,51 @@ public class AlgorithmMDaoImpl implements AlgorithmMDao
 		return algorithms;
 	}
 
+	@Override
+	public int insertAlgorithmNameFunction(String name, String function) {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement sta = null;
+		ResultSet rs = null;
+		int flag=0;
+		try
+		{
+			conn = DBUtil.getConnection();
+			String  sql = "insert into algorithm(name,function,level) values (?, ?,2)";
+	        sta = conn.prepareStatement(sql);
+	        sta.setString(1, name);
+	        sta.setString(2, function);
+	        System.out.println("abcdef");
+	        System.out.println(function);
+	         //statement.executeUpdate("INSERT INTO Customers " + "VALUES (1001, 'Simpson', 'Mr.', 'Springfield', 2001)");
+	        sta.executeUpdate();
+	        flag=1;
+	         
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			
+		}
+		finally
+		{
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (sta != null) {
+					sta.close();
+				}
+				if (conn != null) {
+					conn.close();
+				}
+			}
+			catch (SQLException e) {
+				}
+		}
+		return flag;
+	}
+
 	private Algorithm handleRs(ResultSet rs) {
 		Algorithm algorithm = new Algorithm();
 		try {
@@ -226,5 +270,6 @@ public class AlgorithmMDaoImpl implements AlgorithmMDao
 		}
 		return algorithm;
 	}
+
 
 	}

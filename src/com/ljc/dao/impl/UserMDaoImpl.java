@@ -177,7 +177,7 @@ public class UserMDaoImpl implements UserMDao {
 	 * @return
 	 */
 	@Override
-	public int inserByUserNamePass(String userName, String password) {
+	public int insertByUserNamePass(String userName, String password) {
 		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement sta = null;

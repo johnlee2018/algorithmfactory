@@ -3,7 +3,7 @@
 	<WatchedResource>WEB-INF/web.xml</WatchedResource>
 	<Resource name="jdbc/algorithmfactory" auth="Container"
 		type="javax.sql.DataSource" driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://192.168.1.163:3306/algorithmfactory" username="root"
+		url="jdbc:mysql://192.168.1.163:3306/algorithmfactory?characterEncoding=utf8" username="root"
 		
 		password="123456" maxActive="200" maxIdle="10" maxWait="5000" />
 </Context>

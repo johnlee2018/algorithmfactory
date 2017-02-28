@@ -32,7 +32,7 @@
 	
 </script>
 <body>
-    <form action="Algorithm/GoImprovementServlet" method="post" id='improvementform'> 
+    <form action="Algorithm/GetAlgorithmServlet" method="post" id='improvementform'> 
 		numstr:<input type="text" id="message" name="message" size="20"
 		value=${message}></input> <a> fill the nums by comma separated </a>
 		<br />

@@ -6,4 +6,5 @@ Tue Jan 10 17:51:45 CST 2017 :: Need improve : 方案有两种，第一种web.xml全部过滤
 Tue Jan 10 17:54:06 CST 2017 :: Need improve : 第二种解决方案，在web.xml过滤器配置多加一级目录，相应的servlet也要加这一级目录，而不想被过滤的文件不加这一级目录，从而解决问题
 Tue Jan 10 17:57:07 CST 2017 :: Need improve : 新增需求描述：控制登录时间 ，超过登录时间无操作，自动登出
 Wed Jan 11 22:37:34 CST 2017 :: Need improve : 完成超时自动登出测试
-Tue Feb 07 14:28:31 CST 2017 :: Need improve : 
+
+Tue Feb 28 16:30:25 CST 2017 :: Need improve : jsp页面传后台参数乱码：方案一，后端获取参数后，每一个重新编码，ps:String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");缺点是每次至少新增一个对象，有时新增两个

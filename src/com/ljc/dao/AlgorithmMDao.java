@@ -44,4 +44,13 @@ public interface AlgorithmMDao{
 	 * @return
 	 */
 	public List <Algorithm> getAlgorithmByPagePojo(PagePojo pagePojo );
+
+	/**
+	 * @author li jianchun
+	 * @param name
+	 * @param function
+	 * @return
+	 * 
+	 */
+	public int insertAlgorithmNameFunction(String name, String function);
 }

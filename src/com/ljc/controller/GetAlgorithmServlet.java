@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
 import com.ljc.pojo.Algorithm;
 import com.ljc.service.AlgorithmService;
 import com.ljc.service.impl.AlgorithmServiceImpl;
@@ -38,12 +39,29 @@ public class GetAlgorithmServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		  int page=2;
-		  int pageCount=4;
+		  int page=0;
+		  int pageCount=10;
 		  String pageString = request.getParameter("page");
 		  String pageCountString = request.getParameter("pageCount");
-		  page = Integer.parseInt(pageString);
-		  pageCount = Integer.parseInt(pageCountString);
+		  if (pageString==null)
+		  {
+			  page=0;
+		  }
+		  else
+		  {
+			  page = Integer.parseInt(pageString);
+		  }
+		  if (pageCountString==null)
+		  {
+			  pageCount=20;
+		  }
+		  else
+		  {
+			  pageCount = Integer.parseInt(pageCountString);
+		  }
+		  
+		  //page = Integer.parseInt(pageString);
+		  //pageCount = Integer.parseInt(pageCountString);
 		  AlgorithmService algorithmService=new AlgorithmServiceImpl();
 		  List <Algorithm> algorithms=	algorithmService.getAlgorithmByPage(page, pageCount);
 		  request.setAttribute("algorithms", algorithms);

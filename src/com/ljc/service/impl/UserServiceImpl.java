@@ -99,7 +99,7 @@ public class UserServiceImpl implements UserService{
 	public int register(String userName,String password) {
 		// TODO Auto-generated method stub
 		UserMDao userMDao = new UserMDaoImpl();
-		int flag=userMDao.inserByUserNamePass(userName,password);
+		int flag=userMDao.insertByUserNamePass(userName,password);
 		
 		return flag;
 	}

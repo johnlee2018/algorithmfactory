@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
  *
  */
 public class DBUtil {
+	//private final static String URL = "jdbc:mysql://localhost/shoppingstyle=?characterEncoding=utf8";  
 	private static DataSource ds = null;
 	private static Logger log = Logger.getLogger(DBUtil.class);
 	static {

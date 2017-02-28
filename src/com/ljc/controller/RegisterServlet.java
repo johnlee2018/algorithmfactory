@@ -41,7 +41,7 @@ public class RegisterServlet extends HttpServlet {
 		String md5password =userName+oripassword;
 		String password =MD5Util.MD5Encode(md5password);
 		UserMDao userMDao=new UserMDaoImpl();
-		int flag=userMDao.inserByUserNamePass(userName, password);
+		int flag=userMDao.insertByUserNamePass(userName, password);
 		request.setAttribute("userName",userName);
 		request.setAttribute("password", oripassword);
 		
