@@ -1,4 +1,2 @@
 # algorithmfactory
-
-this is the java project based on jsp+servelt+javaBean
-
+    这个小项目是我是自己的创意，目前已经实现登陆、注册、查看已有算法、使用各大数字排序、快速排序、直接插入排序、shell排序、堆排序、简单选择排序、基数排序、提供需求修改和改进功能。
