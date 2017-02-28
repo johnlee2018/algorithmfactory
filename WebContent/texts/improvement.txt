@@ -9,5 +9,5 @@ Wed Jan 11 22:37:34 CST 2017 :: Need improve : 完成超时自动登出测试
 
 Tue Feb 28 16:30:25 CST 2017 :: Need improve : jsp页面传后台参数乱码：方案一，后端获取参数后，每一个重新编码，ps:String name = new String(request.getParameter("name").getBytes("iso-8859-1"), "utf-8");缺点是每次至少新增一个对象，有时新增两个
 Tue Feb 28 17:17:55 CST 2017 :: Need improve :  jsp????????????????????httprequest?????utf-8???wex.xml?????
-Tue Feb 28 19:27:18 CST 2017 :: Need improve : 出现上一条语句编码失败的原因：当初我为了主动联系io流，故意使用使用流写入读出内容，但是存在一个问题，原来读入的时候是提交的内容没有编码的（null），但是加入编码过滤器之后，改变了原来写入的编码，因而会编码失败，解决方案是在编码过滤器中加入特例路径，不过滤此特例路径，已成功。
+Tue Feb 28 19:27:18 CST 2017 :: Need improve : 出现上一条语句编码失败的原因：当初我为了主动练习io流，故意使用使用流写入读出内容，但是存在一个问题，原来读入的时候是提交的内容没有编码的（null），但是加入编码过滤器之后，改变了原来写入的编码，因而会编码失败，解决方案是在编码过滤器中加入特例路径，不过滤此特例路径，已成功。
 Tue Feb 28 19:29:02 CST 2017 :: Need improve :  jsp页面传后台参数乱码：方案二，在过滤其中把httprequest的编码改为utf-8，并在wex.xml配置过滤器，成功
