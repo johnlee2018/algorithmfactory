@@ -18,13 +18,13 @@ public class SortServiceImpl implements SortService{
 		{
 			numarr=	getIntArry(nums);
 			len=numarr.length;
-			for (int i=0; i<len;i++)
+			for (int i=len-1; i>0;i--)
 			{
-				for (int j=i+1;j<len;j++)
+				for (int j=0;j<i;j++)
 				{
-					if (numarr[j]<numarr[i])
+					if (numarr[j+1]<numarr[j])
 					{
-						numarr=swap(numarr,i,j);
+						numarr=swap(numarr,j+1,j);
 					}
 							
 				}

@@ -2,7 +2,7 @@ package com.ljc.service;
 
 
 
-public interface SortService{
+public interface SortService {
 	
 
 	
