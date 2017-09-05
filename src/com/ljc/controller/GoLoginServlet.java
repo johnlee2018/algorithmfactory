@@ -23,6 +23,9 @@ public class GoLoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setHeader("Cache-Control", "no-cache");
+		response.setHeader("Pragma", "no-cache");
+
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/login.jsp");//the login.jsp use for display the logining
 		//System.out.print("Ω” ‹¡Àhttp");
 		requestDispatcher.forward(request, response);

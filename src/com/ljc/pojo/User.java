@@ -6,6 +6,13 @@ public class User {
 	private String userName;
 	private String pass;
 
+	public User(){};
+	public User(int id,int level,String userName,String pass){
+		this.id=id;
+		this.level=level;
+		this.userName=userName;
+		this.pass=pass;
+	};
 	public int getId() {
 		return id;
 	}

@@ -41,6 +41,7 @@ public class QuickSortServlet extends HttpServlet {
 		request.setAttribute("numstr",numstr);
 		request.setAttribute("algorithm","QuickSort");
 		RequestDispatcher requestDispatcher = request.getRequestDispatcher("/algorithm/display.jsp");
+	
 		requestDispatcher.forward(request, response);
 
 	}

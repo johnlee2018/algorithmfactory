@@ -33,6 +33,9 @@ public class LoginFliter implements Filter  {
 	public void  doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws java.io.IOException, ServletException {
 		// Êä³öÕ¾µãÃû³Æ
 		//String username=null;
+		((HttpServletResponse) response).setHeader("Cache-Control", "no-cache");
+		((HttpServletResponse) response).setHeader("Pragma", "no-cache");
+
 		HttpServletRequest httprequest=(HttpServletRequest) request;
 		HttpServletResponse httpresponse=(HttpServletResponse) response;
 		HttpSession session=httprequest.getSession();
@@ -76,6 +79,7 @@ public class LoginFliter implements Filter  {
 		//chain.doFilter(request, response);     
 	//} 
 	//else{
+		System.out.println("#######"+httprequest.getContextPath()+"/login.jsp");
 		if ((session.getAttribute("currentUser")!=null)  )
 		{
 
@@ -83,8 +87,9 @@ public class LoginFliter implements Filter  {
 		}
 		else 
 		{
-
-			httpresponse.sendRedirect(httprequest.getContextPath()+"/login.jsp");
+			System.out.println("^^^^"+httprequest.getContextPath()+"/login.jsp");
+			httpresponse.sendRedirect(httprequest.getContextPath());
+			//chain.doFilter(request,response);
 		}
 		}
 	//}
